@@ -105,10 +105,3 @@
     }
 }
 
-/* Un breakpoint adicional para ajustar las tarjetas de cursos si se ven muy apretadas */
-@media (min-width: 992px) and (max-width: 1199px) {
-    /* #course-cards-container { */
-        /* Podrías considerar 2 columnas si 3 se ven muy apretadas en este rango */
-        /* grid-template-columns: repeat(2, 1fr); */
-    /* } */
-}
