@@ -1,0 +1,71 @@
+/* styles/larger.css */
+
+/* Media Query para pantallas más grandes (ej. tablets y desktops) */
+@media (min-width: 768px) { /* Puedes ajustar este breakpoint */
+    header {
+        flex-direction: row; /* Nombre al lado de la foto */
+        justify-content: center; /* O flex-start si prefieres alineado a la izquierda */
+        text-align: left;
+    }
+
+    header img#profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+
+    nav #menu-button {
+        display: none; /* Ocultar botón hamburguesa en pantallas grandes */
+    }
+
+    nav ul#nav-links {
+        display: flex !important; /* Forzar display flex, anula el display:none de JS si está activo */
+        justify-content: center; /* Centrar los enlaces */
+        flex-wrap: wrap; /* Permitir que los elementos pasen a la siguiente línea si no caben */
+    }
+
+    nav ul li {
+        border-bottom: none; /* Quitar bordes inferiores */
+        border-right: 1px solid rgba(255, 255, 255, 0.2); /* Separadores verticales */
+    }
+
+    nav ul li:last-child {
+        border-right: none;
+    }
+    
+    nav ul li a {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+    }
+
+    main {
+        padding: calc(var(--spacing-unit) * 3);
+    }
+
+    /* Layout de varias columnas para las secciones principales si es necesario */
+    /* Por ejemplo, podrías usar grid o flexbox para organizar .content-card */
+    /* main {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: calc(var(--spacing-unit) * 2);
+    } */
+
+
+    /* Layout para tarjetas de cursos en múltiples columnas */
+    #course-cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 columnas según el espacio */
+    }
+
+    .course-card h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 1024px) {
+    #course-cards-container {
+        /* Podrías ajustar para tener más columnas en pantallas muy anchas si quisieras */
+        /* grid-template-columns: repeat(3, 1fr); */
+    }
+}

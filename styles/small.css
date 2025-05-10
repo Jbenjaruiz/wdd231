@@ -1,0 +1,211 @@
+/* styles/small.css */
+
+/* Variables CSS (Opcional, pero útil para consistencia) */
+:root {
+    --primary-color: #2c3e50; /* Azul oscuro */
+    --secondary-color: #3498db; /* Azul claro */
+    --accent-color: #e74c3c; /* Rojo/Naranja para acentos */
+    --light-gray: #ecf0f1;   /* Gris claro para fondos */
+    --dark-gray: #7f8c8d;    /* Gris oscuro para texto secundario */
+    --text-color: #333;
+    --background-color: #fff;
+    --completed-course-bg: #d4efdf; /* Verde claro para cursos completados */
+
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --spacing-unit: 8px;
+    --border-radius: 4px;
+}
+
+body {
+    font-family: var(--font-secondary);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: calc(var(--spacing-unit) * 2);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-unit);
+}
+
+header img#profile-pic {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary-color);
+    object-fit: cover;
+}
+
+header h1 {
+    margin: 0;
+    font-family: var(--font-primary);
+    font-size: 1.8em;
+}
+
+nav {
+    background-color: var(--secondary-color);
+    padding: var(--spacing-unit);
+}
+
+nav #menu-button {
+    display: block; /* Mostrar por defecto en móviles */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2em;
+    cursor: pointer;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    margin: 0 auto var(--spacing-unit) auto; /* Centrar el botón */
+}
+
+nav ul#nav-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: none; /* Oculto por defecto, se mostrará con JS */
+}
+
+nav ul#nav-links.open {
+    display: block; /* JS cambiará esto */
+    text-align: center;
+}
+
+nav ul li {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+nav ul li:last-child {
+    border-bottom: none;
+}
+
+nav ul li a {
+    display: block;
+    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
+    color: white;
+    text-decoration: none;
+    font-family: var(--font-primary);
+    transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background-color: var(--primary-color);
+    font-weight: bold;
+}
+
+main {
+    flex-grow: 1;
+    padding: calc(var(--spacing-unit) * 2);
+    max-width: 1200px;
+    margin: 0 auto; /* Centrar el contenido principal */
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.content-card {
+    background-color: var(--light-gray);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    padding: calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.content-card h2 {
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: var(--spacing-unit);
+}
+
+/* Estilos para filtros de cursos */
+#course-filters {
+    margin-bottom: var(--spacing-unit);
+    display: flex;
+    flex-wrap: wrap; /* Para que los botones se ajusten en pantallas pequeñas */
+    gap: var(--spacing-unit);
+}
+
+#course-filters button {
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+    border: 1px solid var(--secondary-color);
+    background-color: white;
+    color: var(--secondary-color);
+    cursor: pointer;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-family: var(--font-primary);
+}
+
+#course-filters button:hover,
+#course-filters button.active-filter {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Estilos para tarjetas de cursos (base) */
+#course-cards-container {
+    display: grid;
+    grid-template-columns: 1fr; /* Una columna por defecto */
+    gap: calc(var(--spacing-unit) * 2);
+}
+
+.course-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: var(--border-radius);
+    padding: calc(var(--spacing-unit) * 2);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.course-card h3 {
+    font-family: var(--font-primary);
+    color: var(--primary-color);
+    margin-top: 0;
+    font-size: 1.2em;
+}
+
+.course-card p {
+    font-size: 0.9em;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+}
+
+.course-card.completed {
+    background-color: var(--completed-course-bg);
+    border-left: 5px solid var(--secondary-color); /* Un indicador visual más fuerte */
+}
+
+#total-credits-container {
+    margin-top: calc(var(--spacing-unit) * 2);
+    font-weight: bold;
+    text-align: right;
+    font-family: var(--font-primary);
+}
+
+#total-credits-container #total-credits {
+    color: var(--primary-color);
+}
+
+footer {
+    background-color: var(--dark-gray);
+    color: var(--light-gray);
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2);
+    font-size: 0.9em;
+}
+
+footer p {
+    margin: calc(var(--spacing-unit) / 2) 0;
+}
