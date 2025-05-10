@@ -79,22 +79,23 @@ header {
     padding: calc(var(--spacing-unit) * 2);
     display: flex;
     align-items: center;
-    gap: calc(var(--spacing-unit) * 2);
+    gap: calc(var(--spacing-unit) * 1.5); /* Reducimos un poco el gap si es necesario */
 }
 
 header img#profile-pic {
-    width: 60px; /* Ajustado para el diseño pequeño */
-    height: 60px;
-    border-radius: 50%;
+    width: 50px; /* Ancho de la foto */
+    height: 65px; /* Altura de la foto (más alto que ancho) */
+    border-radius: var(--border-radius-medium, 8px); /* Bordes redondeados para el rectángulo */
     border: 2px solid var(--color-primary-medium);
-    object-fit: cover;
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
 }
 
 header h1 {
     font-family: var(--font-primary);
-    font-size: 1.5rem; /* Ajustado */
+    font-size: 1.5rem;
     font-weight: 700;
-    flex-grow: 1; /* Para empujar el botón de menú a la derecha */
+    flex-grow: 1; /* Permite que el nombre ocupe espacio y empuje el botón */
+    margin: 0; /* Aseguramos que no haya márgenes extraños */
 }
 
 header #menu-button {
@@ -104,8 +105,9 @@ header #menu-button {
     font-size: 2rem;
     cursor: pointer;
     padding: var(--spacing-unit);
-    margin-left: auto; /* Asegura que se alinee a la derecha si h1 no crece lo suficiente */
+    margin-left: auto; /* Empuja el botón de menú al extremo derecho */
 }
+
 
 /* --- Navegación --- */
 nav {
@@ -311,5 +313,3 @@ footer p:last-child {
     font-weight: bold;
     color: var(--color-secondary-dark); /* Color más oscuro para el número */
 }
-
-/* ... otros estilos ... */

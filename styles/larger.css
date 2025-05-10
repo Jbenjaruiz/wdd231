@@ -1,33 +1,34 @@
-/* styles/larger.css */
 
 @media (min-width: 768px) { /* Breakpoint para tablets y más grandes */
 
     /* --- Encabezado --- */
     header {
         padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 4);
+        justify-content: center; /* Centra el contenido del header (foto y nombre) */
+        position: relative; 
     }
     header img#profile-pic {
-        width: 80px;
-        height: 80px;
+        width: 60px; 
+        height: 78px; 
     }
     header h1 {
         font-size: 2rem;
-        text-align: left; /* Alineación del nombre */
+        text-align: left; 
+        flex-grow: 0; 
     }
     header #menu-button {
-        display: none; /* Ocultar botón hamburguesa */
+        display: none; 
     }
 
     /* --- Navegación --- */
     nav ul#nav-links {
-        display: flex !important; /* Sobrescribir display:none si JS lo puso */
+        display: flex !important; 
         flex-direction: row;
         justify-content: center;
     }
     nav ul#nav-links li {
         width: auto;
         border-bottom: none;
-        /* border-right: 1px solid rgba(255, 255, 255, 0.1); Quitado para que se vea como el diseño */
     }
     nav ul#nav-links li:last-child {
         border-right: none;
@@ -39,8 +40,8 @@
     /* --- Contenido Principal (main) --- */
     main {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
-        max-width: 1200px; /* Ancho máximo para el contenido principal */
-        margin: 0 auto; /* Centrar en la página */
+        max-width: 1200px; 
+        margin: 0 auto; 
     }
     
     main h1 { /* Título "Home" */
@@ -50,55 +51,64 @@
 
     .main-columns {
         display: grid;
-        grid-template-columns: 2fr 1fr; /* Columna izquierda más ancha */
+        grid-template-columns: 2fr 1fr; 
         gap: calc(var(--spacing-unit) * 3);
         margin-bottom: calc(var(--spacing-unit) * 3);
     }
     
-    /* No es necesario .content-card h2 aquí porque ya tiene estilos base */
-
     #location-info img {
-        max-height: none; /* Permitir que la imagen tome más altura si es necesario */
+        max-height: none; 
     }
 
     /* Sección del Certificado */
     #certificate-section #course-filters {
-        justify-content: flex-start; /* Alinea los botones a la izquierda */
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2); /* Menos padding vertical */
+        justify-content: center; /* << MODIFICADO: Centrar los botones */
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2); 
     }
     #certificate-section #course-filters button {
-        flex-grow: 0; /* Para que no crezcan y ocupen solo su contenido */
+        flex-grow: 0; 
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 3); /* << MODIFICADO: Padding horizontal aumentado para hacerlos más anchos */
+        min-width: 100px; /* << AÑADIDO: Un ancho mínimo para asegurar que no sean demasiado pequeños */
     }
 
     #course-cards-container {
-        grid-template-columns: repeat(3, 1fr); /* Tres columnas como en el diseño */
+        grid-template-columns: repeat(3, 1fr); 
         gap: calc(var(--spacing-unit) * 2.5);
     }
     .course-card {
-        padding: calc(var(--spacing-unit) * 2); /* Un poco más de padding */
-        font-size: 1rem; /* Ligeramente más pequeño para que quepa mejor el código */
+        padding: calc(var(--spacing-unit) * 2); 
+        font-size: 1rem; 
     }
 
+    #certificate-section #total-credits-container {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+        font-size: 1.1rem; 
+    }
 
     /* --- Pie de Página --- */
     footer {
         padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
         display: flex;
-        flex-direction: column; /* Para centrar las dos líneas principales */
+        flex-direction: column; 
         align-items: center;
-        /* O si prefieres las dos líneas en una, puedes usar flex-row y justificar */
     }
     footer p {
-        margin-bottom: calc(var(--spacing-unit) * 0.5); /* Menos espacio entre párrafos */
+        margin-bottom: calc(var(--spacing-unit) * 0.5); 
     }
 
-    /* Visibilidad específica para el footer en pantalla grande */
     .footer-location-large {
-        display: inline; /* Visible en pantalla grande */
+        display: inline; 
     }
     .footer-location-small,
     .footer-flag-small {
-        display: none; /* Oculto en pantalla grande */
+        display: none; 
     }
 }
 
+/* Un breakpoint adicional para ajustar las tarjetas de cursos si se ven muy apretadas */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* #course-cards-container { */
+        /* Podrías considerar 2 columnas si 3 se ven muy apretadas en este rango */
+        /* grid-template-columns: repeat(2, 1fr); */
+    /* } */
+}
