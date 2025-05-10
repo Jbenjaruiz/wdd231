@@ -7,8 +7,6 @@
     <meta name="description" content="Init page WDD 231 Course developed by Janio B. Ruiz.">
     <meta name="author" content="Janio B. Ruiz">
 
-    <link rel="stylesheet" href="styles/normalize.css">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
@@ -20,12 +18,12 @@
     </head>
 <body>
     <header>
-        <img src="images/placeholder-profile.jpg" alt="Janio B. Ruiz photo" id="profile-pic">
+        <img src="images/profile.jpg" alt="Janio B. Ruiz photo" id="profile-pic">
         <h1><span id="student-name">Janio B. Ruiz</span></h1>
+        <button id="menu-button">☰</button>
     </header>
 
     <nav>
-        <button id="menu-button">☰</button>
         <ul id="nav-links">
             <li><a href="index.html" class="active">Home</a></li>
             <li><a href="#">Chamber</a></li>
@@ -36,33 +34,38 @@
     </nav>
 
     <main>
-        <section class="content-card">
-            <h2>Learning Activities</h2>
-            <p>Learning activities content...</p>
+        <h1>Home</h1> <div class="main-columns">
+            <section id="course-work" class="content-card">
+                <h2>Course Work</h2>
+                <ul>
+                    <li>Semana 01: Artículo de Opinión</li>
+                    <li>Semana 02: Diseño de Producto</li>
+                    <li>Proyecto: Sitio de la Cámara de Comercio</li>
+                    </ul>
             </section>
+            <section id="location-info" class="content-card">
+                <h2>Guatemala</h2> <img src="images/jaguar-pyramid.jpg" alt="Paisaje de Guatemala"> <p class="caption">Jaguar Pyramid - Tikal</p> </section>
+        </div>
 
-        <section class="content-card" id="courses-section">
+        <section id="certificate-section" class="content-card full-width-card">
             <h2>Web and Computer Programming Certificate</h2>
             <div id="course-filters">
-                <button data-filter="all" class="active-filter">All Courses</button>
-                <button data-filter="wdd">WDD Courses</button>
-                <button data-filter="cse">CSE Courses</button>
+                <button data-filter="all" class="active-filter">All</button>
+                <button data-filter="cse">CSE</button>
+                <button data-filter="wdd">WDD</button>
+            </div>
+            <div id="total-credits-container" > 
+                <p>Total Credits Displayed: <span id="total-credits">0</span></p>
             </div>
             <div id="course-cards-container">
                 </div>
-            <div id="total-credits-container">
-                <p>Total Credits Displayed: <span id="total-credits">0</span></p>
-            </div>
         </section>
-
-        <section class="content-card">
-            <h2>Projects</h2>
-            <p>Couse projects info...</p>
-            </section>
     </main>
 
     <footer>
-        <p>&copy;<span id="currentyear"></span> Janio Benjamin Ruiz Serrano - Guatemala</p>
+        <p>&copy;<span id="currentyear"></span> Janio Benjamin Ruiz Serrano - <span class="footer-location-large">Guatemala 🇲🇬</span></p>
+        <p class="footer-location-small">🌺 Guatemala 🌺</p>
+        <p class="footer-flag-small">🇲🇬</p>
         <p id="lastModified"></p>
     </footer>
 </body>

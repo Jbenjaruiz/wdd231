@@ -1,71 +1,104 @@
 /* styles/larger.css */
 
-/* Media Query para pantallas más grandes (ej. tablets y desktops) */
-@media (min-width: 768px) { /* Puedes ajustar este breakpoint */
+@media (min-width: 768px) { /* Breakpoint para tablets y más grandes */
+
+    /* --- Encabezado --- */
     header {
-        flex-direction: row; /* Nombre al lado de la foto */
-        justify-content: center; /* O flex-start si prefieres alineado a la izquierda */
-        text-align: left;
+        padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 4);
     }
-
     header img#profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
-
     header h1 {
-        font-size: 2.2em;
+        font-size: 2rem;
+        text-align: left; /* Alineación del nombre */
+    }
+    header #menu-button {
+        display: none; /* Ocultar botón hamburguesa */
     }
 
-    nav #menu-button {
-        display: none; /* Ocultar botón hamburguesa en pantallas grandes */
-    }
-
+    /* --- Navegación --- */
     nav ul#nav-links {
-        display: flex !important; /* Forzar display flex, anula el display:none de JS si está activo */
-        justify-content: center; /* Centrar los enlaces */
-        flex-wrap: wrap; /* Permitir que los elementos pasen a la siguiente línea si no caben */
+        display: flex !important; /* Sobrescribir display:none si JS lo puso */
+        flex-direction: row;
+        justify-content: center;
     }
-
-    nav ul li {
-        border-bottom: none; /* Quitar bordes inferiores */
-        border-right: 1px solid rgba(255, 255, 255, 0.2); /* Separadores verticales */
+    nav ul#nav-links li {
+        width: auto;
+        border-bottom: none;
+        /* border-right: 1px solid rgba(255, 255, 255, 0.1); Quitado para que se vea como el diseño */
     }
-
-    nav ul li:last-child {
+    nav ul#nav-links li:last-child {
         border-right: none;
     }
-    
-    nav ul li a {
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+    nav ul#nav-links li a {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
     }
 
+    /* --- Contenido Principal (main) --- */
     main {
-        padding: calc(var(--spacing-unit) * 3);
+        padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
+        max-width: 1200px; /* Ancho máximo para el contenido principal */
+        margin: 0 auto; /* Centrar en la página */
+    }
+    
+    main h1 { /* Título "Home" */
+        font-size: 2.5rem;
+        margin-bottom: calc(var(--spacing-unit) * 3);
     }
 
-    /* Layout de varias columnas para las secciones principales si es necesario */
-    /* Por ejemplo, podrías usar grid o flexbox para organizar .content-card */
-    /* main {
+    .main-columns {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: calc(var(--spacing-unit) * 2);
-    } */
+        grid-template-columns: 2fr 1fr; /* Columna izquierda más ancha */
+        gap: calc(var(--spacing-unit) * 3);
+        margin-bottom: calc(var(--spacing-unit) * 3);
+    }
+    
+    /* No es necesario .content-card h2 aquí porque ya tiene estilos base */
 
-
-    /* Layout para tarjetas de cursos en múltiples columnas */
-    #course-cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 columnas según el espacio */
+    #location-info img {
+        max-height: none; /* Permitir que la imagen tome más altura si es necesario */
     }
 
-    .course-card h3 {
-        font-size: 1.3em;
+    /* Sección del Certificado */
+    #certificate-section #course-filters {
+        justify-content: flex-start; /* Alinea los botones a la izquierda */
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2); /* Menos padding vertical */
+    }
+    #certificate-section #course-filters button {
+        flex-grow: 0; /* Para que no crezcan y ocupen solo su contenido */
+    }
+
+    #course-cards-container {
+        grid-template-columns: repeat(3, 1fr); /* Tres columnas como en el diseño */
+        gap: calc(var(--spacing-unit) * 2.5);
+    }
+    .course-card {
+        padding: calc(var(--spacing-unit) * 2); /* Un poco más de padding */
+        font-size: 1rem; /* Ligeramente más pequeño para que quepa mejor el código */
+    }
+
+
+    /* --- Pie de Página --- */
+    footer {
+        padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
+        display: flex;
+        flex-direction: column; /* Para centrar las dos líneas principales */
+        align-items: center;
+        /* O si prefieres las dos líneas en una, puedes usar flex-row y justificar */
+    }
+    footer p {
+        margin-bottom: calc(var(--spacing-unit) * 0.5); /* Menos espacio entre párrafos */
+    }
+
+    /* Visibilidad específica para el footer en pantalla grande */
+    .footer-location-large {
+        display: inline; /* Visible en pantalla grande */
+    }
+    .footer-location-small,
+    .footer-flag-small {
+        display: none; /* Oculto en pantalla grande */
     }
 }
 
-@media (min-width: 1024px) {
-    #course-cards-container {
-        /* Podrías ajustar para tener más columnas en pantallas muy anchas si quisieras */
-        /* grid-template-columns: repeat(3, 1fr); */
-    }
-}

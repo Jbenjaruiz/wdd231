@@ -1,211 +1,315 @@
 /* styles/small.css */
 
-/* Variables CSS (Opcional, pero útil para consistencia) */
-:root {
-    --primary-color: #2c3e50; /* Azul oscuro */
-    --secondary-color: #3498db; /* Azul claro */
-    --accent-color: #e74c3c; /* Rojo/Naranja para acentos */
-    --light-gray: #ecf0f1;   /* Gris claro para fondos */
-    --dark-gray: #7f8c8d;    /* Gris oscuro para texto secundario */
-    --text-color: #333;
-    --background-color: #fff;
-    --completed-course-bg: #d4efdf; /* Verde claro para cursos completados */
+/* --- Reinicios Básicos --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    --font-primary: 'Roboto', sans-serif;
-    --font-secondary: 'Open Sans', sans-serif;
-
-    --spacing-unit: 8px;
-    --border-radius: 4px;
+html {
+    font-size: 16px; /* Base para rem */
 }
 
 body {
-    font-family: var(--font-secondary);
+    font-family: var(--font-secondary, 'Open Sans', sans-serif);
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
+    color: var(--text-color, #333);
+    background-color: var(--background-page, #f4f4f4); /* Un fondo de página ligeramente gris */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Variables CSS --- */
+:root {
+    /* Paleta de colores inspirada en los diseños (puedes ajustarlos) */
+    --color-primary-dark: #003C43;   /* Azul verdoso oscuro para header/footer/card-headers */
+    --color-primary-medium: #135D66; /* Un tono más claro para acentos */
+    --color-secondary-dark: #333333; /* Negro/gris oscuro para nav y texto */
+    --color-accent: #FFD700;         /* Un acento, ej. para el link activo (dorado) */
+    --color-light-bg: #ffffff;       /* Fondo claro para contenido de tarjetas */
+    --color-page-bg: #E3FEF7;        /* Fondo general de la página (un verde muy pálido) */
+    --color-text-light: #ffffff;
+    --color-text-dark: #333333;
+    --color-text-subtle: #555555;
+
+    --course-card-completed-bg: #77B0AA; /* Verde azulado para cursos completados */
+    --course-card-default-bg: #DDDDDD; /* Gris claro para cursos no completados */
+    --course-card-text: var(--color-text-dark);
+
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+
+    --spacing-unit: 8px;
+    --border-radius-small: 4px;
+    --border-radius-medium: 8px;
+
+    --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* --- Clase Utilitaria --- */
+.hidden {
+    display: none !important;
+}
+
+/* styles/small.css (continuación) */
+
+/* --- Encabezado --- */
 header {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
     padding: calc(var(--spacing-unit) * 2);
-    text-align: center;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    gap: var(--spacing-unit);
+    gap: calc(var(--spacing-unit) * 2);
 }
 
 header img#profile-pic {
-    width: 80px;
-    height: 80px;
+    width: 60px; /* Ajustado para el diseño pequeño */
+    height: 60px;
     border-radius: 50%;
-    border: 3px solid var(--secondary-color);
+    border: 2px solid var(--color-primary-medium);
     object-fit: cover;
 }
 
 header h1 {
-    margin: 0;
     font-family: var(--font-primary);
-    font-size: 1.8em;
+    font-size: 1.5rem; /* Ajustado */
+    font-weight: 700;
+    flex-grow: 1; /* Para empujar el botón de menú a la derecha */
 }
 
-nav {
-    background-color: var(--secondary-color);
-    padding: var(--spacing-unit);
-}
-
-nav #menu-button {
-    display: block; /* Mostrar por defecto en móviles */
+header #menu-button {
     background: none;
     border: none;
-    color: white;
-    font-size: 2em;
+    color: var(--color-text-light);
+    font-size: 2rem;
     cursor: pointer;
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
-    margin: 0 auto var(--spacing-unit) auto; /* Centrar el botón */
+    padding: var(--spacing-unit);
+    margin-left: auto; /* Asegura que se alinee a la derecha si h1 no crece lo suficiente */
+}
+
+/* --- Navegación --- */
+nav {
+    background-color: var(--color-secondary-dark);
 }
 
 nav ul#nav-links {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: none; /* Oculto por defecto, se mostrará con JS */
+    display: none; /* Oculto por defecto, JS lo muestra */
+    flex-direction: column;
 }
 
 nav ul#nav-links.open {
-    display: block; /* JS cambiará esto */
-    text-align: center;
+    display: flex;
 }
 
-nav ul li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+nav ul#nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
-nav ul li:last-child {
+nav ul#nav-links li:last-child {
     border-bottom: none;
 }
 
-nav ul li a {
+nav ul#nav-links li a {
     display: block;
-    padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
-    color: white;
-    text-decoration: none;
-    font-family: var(--font-primary);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+    color: var(--color-text-light);
+    text-align: center;
+    font-family: var(--font-secondary);
+    font-weight: 600;
     transition: background-color 0.3s ease;
 }
 
-nav ul li a:hover,
-nav ul li a.active {
-    background-color: var(--primary-color);
+nav ul#nav-links li a:hover {
+    background-color: var(--color-primary-medium);
+}
+nav ul#nav-links li a.active {
+    background-color: var(--color-primary-dark); /* Un poco más oscuro que el hover */
+    color: var(--color-accent); /* Color de acento para el texto activo */
     font-weight: bold;
 }
 
+/* --- Contenido Principal (main) --- */
 main {
-    flex-grow: 1;
     padding: calc(var(--spacing-unit) * 2);
-    max-width: 1200px;
-    margin: 0 auto; /* Centrar el contenido principal */
-    width: 100%;
-    box-sizing: border-box;
+    flex-grow: 1; /* Para que el footer se quede abajo */
+}
+
+main h1 { /* Título "Home" */
+    font-family: var(--font-primary);
+    font-size: 2rem;
+    color: var(--color-secondary-dark);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    text-align: left;
 }
 
 .content-card {
-    background-color: var(--light-gray);
-    margin-bottom: calc(var(--spacing-unit) * 2);
-    padding: calc(var(--spacing-unit) * 2);
-    border-radius: var(--border-radius);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background-color: var(--color-light-bg);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden; /* Para que los encabezados internos con bordes redondeados se vean bien */
 }
 
 .content-card h2 {
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
     font-family: var(--font-primary);
-    color: var(--primary-color);
-    margin-top: 0;
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: var(--spacing-unit);
+    font-size: 1.25rem;
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+    margin: 0; /* El h2 no debe tener margen propio si es el encabezado de la tarjeta */
 }
 
-/* Estilos para filtros de cursos */
-#course-filters {
+/* Estilos específicos para las tarjetas de contenido */
+#course-work ul {
+    padding: calc(var(--spacing-unit) * 2);
+    list-style-position: inside; /* Para que los bullets estén dentro del padding */
+}
+#course-work ul li {
     margin-bottom: var(--spacing-unit);
+    padding-left: var(--spacing-unit);
+    list-style-type: disc; /* O el que prefieras */
+}
+
+#location-info img {
+    width: 100%; /* La imagen ocupa todo el ancho de su contenedor */
+    max-height: 300px; /* Limita la altura en móvil si es muy grande */
+    object-fit: cover;
+}
+#location-info .caption {
+    font-size: 0.9rem;
+    color: var(--color-text-subtle);
+    text-align: center;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    background-color: #f9f9f9; /* Un fondo ligero para la leyenda */
+}
+
+/* Sección del Certificado */
+#certificate-section #course-filters {
+    padding: calc(var(--spacing-unit) * 2);
     display: flex;
-    flex-wrap: wrap; /* Para que los botones se ajusten en pantallas pequeñas */
+    flex-wrap: wrap; /* Para que se ajusten en móvil */
     gap: var(--spacing-unit);
+    justify-content: center; /* Centrar los botones */
+    background-color: var(--color-light-bg); /* Fondo para el área de filtros */
+    border-bottom: 1px solid #eee; /* Separador */
 }
 
-#course-filters button {
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
-    border: 1px solid var(--secondary-color);
-    background-color: white;
-    color: var(--secondary-color);
+#certificate-section #course-filters button {
+    background-color: var(--color-secondary-dark);
+    color: var(--color-text-light);
+    border: none;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius-small);
     cursor: pointer;
-    border-radius: var(--border-radius);
-    transition: background-color 0.3s ease, color 0.3s ease;
-    font-family: var(--font-primary);
+    font-family: var(--font-secondary);
+    font-weight: 600;
+    transition: background-color 0.3s ease, opacity 0.3s ease;
+    flex-grow: 1; /* Para que ocupen espacio similar */
+    text-align: center;
 }
 
-#course-filters button:hover,
-#course-filters button.active-filter {
-    background-color: var(--secondary-color);
-    color: white;
+#certificate-section #course-filters button.active-filter,
+#certificate-section #course-filters button:hover {
+    background-color: var(--color-primary-medium);
+    opacity: 0.9;
 }
 
-/* Estilos para tarjetas de cursos (base) */
 #course-cards-container {
+    padding: calc(var(--spacing-unit) * 2);
     display: grid;
-    grid-template-columns: 1fr; /* Una columna por defecto */
+    grid-template-columns: 1fr; /* Una columna en móvil */
     gap: calc(var(--spacing-unit) * 2);
 }
 
 .course-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: var(--border-radius);
-    padding: calc(var(--spacing-unit) * 2);
-    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-}
-
-.course-card h3 {
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius-medium);
+    text-align: center;
     font-family: var(--font-primary);
-    color: var(--primary-color);
-    margin-top: 0;
-    font-size: 1.2em;
-}
-
-.course-card p {
-    font-size: 0.9em;
-    margin-bottom: calc(var(--spacing-unit) / 2);
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: var(--course-card-text);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
 .course-card.completed {
-    background-color: var(--completed-course-bg);
-    border-left: 5px solid var(--secondary-color); /* Un indicador visual más fuerte */
+    background-color: var(--course-card-completed-bg);
 }
 
-#total-credits-container {
-    margin-top: calc(var(--spacing-unit) * 2);
-    font-weight: bold;
-    text-align: right;
-    font-family: var(--font-primary);
+.course-card:not(.completed) {
+    background-color: var(--course-card-default-bg);
 }
 
-#total-credits-container #total-credits {
-    color: var(--primary-color);
-}
 
+/* --- Pie de Página --- */
 footer {
-    background-color: var(--dark-gray);
-    color: var(--light-gray);
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 2);
     text-align: center;
-    padding: calc(var(--spacing-unit) * 2);
-    font-size: 0.9em;
+    font-size: 0.9rem;
 }
 
 footer p {
-    margin: calc(var(--spacing-unit) / 2) 0;
+    margin-bottom: var(--spacing-unit);
 }
+footer p:last-child {
+    margin-bottom: 0;
+}
+
+/* Visibilidad específica para el footer en móvil */
+.footer-location-large {
+    display: none; /* Oculto en móvil */
+}
+.footer-location-small,
+.footer-flag-small {
+    display: block; /* Visible en móvil */
+}
+.footer-flag-small {
+    font-size: 1.5rem; /* Tamaño para la bandera emoji */
+}
+
+/* styles/small.css (añadir o modificar estos estilos) */
+
+/* ... otros estilos ... */
+
+#certificate-section #total-credits-container {
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2); /* Un poco de padding arriba y abajo */
+    text-align: center; /* Centrar el texto */
+    font-size: 1rem;
+    font-weight: normal; /* O bold si lo prefieres */
+    color: var(--color-text-subtle); /* Un color de texto no tan prominente */
+    background-color: var(--color-light-bg); /* Mismo fondo que el área de filtros */
+    /* border-top: 1px solid #eee; Si quieres un separador arriba */
+}
+
+#certificate-section #total-credits-container p {
+    margin: 0; /* Quitar margen del párrafo si es necesario */
+}
+
+#total-credits {
+    font-weight: bold;
+    color: var(--color-secondary-dark); /* Color más oscuro para el número */
+}
+
+/* ... otros estilos ... */
