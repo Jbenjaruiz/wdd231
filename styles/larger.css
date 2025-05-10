@@ -1,71 +1,114 @@
-/* styles/larger.css */
 
-/* Media Query para pantallas más grandes (ej. tablets y desktops) */
-@media (min-width: 768px) { /* Puedes ajustar este breakpoint */
+@media (min-width: 768px) { /* Breakpoint para tablets y más grandes */
+
+    /* --- Encabezado --- */
     header {
-        flex-direction: row; /* Nombre al lado de la foto */
-        justify-content: center; /* O flex-start si prefieres alineado a la izquierda */
-        text-align: left;
+        padding: calc(var(--spacing-unit) * 2.5) calc(var(--spacing-unit) * 4);
+        justify-content: center; /* Centra el contenido del header (foto y nombre) */
+        position: relative; 
     }
-
     header img#profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 60px; 
+        height: 78px; 
     }
-
     header h1 {
-        font-size: 2.2em;
+        font-size: 2rem;
+        text-align: left; 
+        flex-grow: 0; 
+    }
+    header #menu-button {
+        display: none; 
     }
 
-    nav #menu-button {
-        display: none; /* Ocultar botón hamburguesa en pantallas grandes */
-    }
-
+    /* --- Navegación --- */
     nav ul#nav-links {
-        display: flex !important; /* Forzar display flex, anula el display:none de JS si está activo */
-        justify-content: center; /* Centrar los enlaces */
-        flex-wrap: wrap; /* Permitir que los elementos pasen a la siguiente línea si no caben */
+        display: flex !important; 
+        flex-direction: row;
+        justify-content: center;
     }
-
-    nav ul li {
-        border-bottom: none; /* Quitar bordes inferiores */
-        border-right: 1px solid rgba(255, 255, 255, 0.2); /* Separadores verticales */
+    nav ul#nav-links li {
+        width: auto;
+        border-bottom: none;
     }
-
-    nav ul li:last-child {
+    nav ul#nav-links li:last-child {
         border-right: none;
     }
-    
-    nav ul li a {
-        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
+    nav ul#nav-links li a {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
     }
 
+    /* --- Contenido Principal (main) --- */
     main {
-        padding: calc(var(--spacing-unit) * 3);
+        padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
+        max-width: 1200px; 
+        margin: 0 auto; 
+    }
+    
+    main h1 { /* Título "Home" */
+        font-size: 2.5rem;
+        margin-bottom: calc(var(--spacing-unit) * 3);
     }
 
-    /* Layout de varias columnas para las secciones principales si es necesario */
-    /* Por ejemplo, podrías usar grid o flexbox para organizar .content-card */
-    /* main {
+    .main-columns {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: calc(var(--spacing-unit) * 2);
-    } */
-
-
-    /* Layout para tarjetas de cursos en múltiples columnas */
-    #course-cards-container {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 2 o 3 columnas según el espacio */
+        grid-template-columns: 2fr 1fr; 
+        gap: calc(var(--spacing-unit) * 3);
+        margin-bottom: calc(var(--spacing-unit) * 3);
+    }
+    
+    #location-info img {
+        max-height: none; 
     }
 
-    .course-card h3 {
-        font-size: 1.3em;
+    /* Sección del Certificado */
+    #certificate-section #course-filters {
+        justify-content: center; /* << MODIFICADO: Centrar los botones */
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2); 
+    }
+    #certificate-section #course-filters button {
+        flex-grow: 0; 
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 3); /* << MODIFICADO: Padding horizontal aumentado para hacerlos más anchos */
+        min-width: 100px; /* << AÑADIDO: Un ancho mínimo para asegurar que no sean demasiado pequeños */
+    }
+
+    #course-cards-container {
+        grid-template-columns: repeat(3, 1fr); 
+        gap: calc(var(--spacing-unit) * 2.5);
+    }
+    .course-card {
+        padding: calc(var(--spacing-unit) * 2); 
+        font-size: 1rem; 
+    }
+
+    #certificate-section #total-credits-container {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+        font-size: 1.1rem; 
+    }
+
+    /* --- Pie de Página --- */
+    footer {
+        padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 4);
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+    }
+    footer p {
+        margin-bottom: calc(var(--spacing-unit) * 0.5); 
+    }
+
+    .footer-location-large {
+        display: inline; 
+    }
+    .footer-location-small,
+    .footer-flag-small {
+        display: none; 
     }
 }
 
-@media (min-width: 1024px) {
-    #course-cards-container {
-        /* Podrías ajustar para tener más columnas en pantallas muy anchas si quisieras */
-        /* grid-template-columns: repeat(3, 1fr); */
-    }
+/* Un breakpoint adicional para ajustar las tarjetas de cursos si se ven muy apretadas */
+@media (min-width: 992px) and (max-width: 1199px) {
+    /* #course-cards-container { */
+        /* Podrías considerar 2 columnas si 3 se ven muy apretadas en este rango */
+        /* grid-template-columns: repeat(2, 1fr); */
+    /* } */
 }
