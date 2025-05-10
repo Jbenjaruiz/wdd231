@@ -63,13 +63,13 @@
 
     /* Sección del Certificado */
     #certificate-section #course-filters {
-        justify-content: center; /* << MODIFICADO: Centrar los botones */
+        justify-content: center; 
         padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2); 
     }
     #certificate-section #course-filters button {
         flex-grow: 0; 
-        padding: var(--spacing-unit) calc(var(--spacing-unit) * 3); /* << MODIFICADO: Padding horizontal aumentado para hacerlos más anchos */
-        min-width: 100px; /* << AÑADIDO: Un ancho mínimo para asegurar que no sean demasiado pequeños */
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 3); 
+        min-width: 100px; 
     }
 
     #course-cards-container {

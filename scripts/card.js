@@ -1,5 +1,3 @@
-// scripts/card.js
-
 document.addEventListener('DOMContentLoaded', () => {
     const courses = [
         {
@@ -12,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             technology: [
                 'Python'
             ],
-            completed: true // Ejemplo: Janio completó este
+            completed: true 
         },
         {
             subject: 'WDD',
@@ -25,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 'HTML',
                 'CSS'
             ],
-            completed: true // Ejemplo: Janio completó este
+            completed: true 
         },
         {
             subject: 'CSE',
@@ -37,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             technology: [
                 'Python'
             ],
-            completed: true // Ejemplo: Janio completó este
+            completed: true 
         },
         {
             subject: 'CSE',
@@ -49,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
             technology: [
                 'C#'
             ],
-            completed: false // Janio aún no ha completado este
+            completed: false  
         },
         {
             subject: 'WDD',
@@ -63,12 +61,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 'CSS',
                 'JavaScript'
             ],
-            completed: false // Janio aún no ha completado este
+            completed: false  
         },
         {
             subject: 'WDD',
             number: 231,
-            title: 'Frontend Web Development I', // Este es el curso actual WDD 231
+            title: 'Frontend Web Development I', 
             credits: 2,
             certificate: 'Web and Computer Programming',
             description: 'This course builds on prior experience with Dynamic Web Fundamentals and programming. Students will focus on user experience, accessibility, compliance, performance optimization, and basic API usage.',
@@ -77,17 +75,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 'CSS',
                 'JavaScript'
             ],
-            completed: false // Asumiendo que está en progreso
+            completed: false 
         }
     ];
 
     const courseCardsContainer = document.getElementById('course-cards-container');
     const filterButtons = document.querySelectorAll('#course-filters button');
-    const totalCreditsSpan = document.getElementById('total-credits'); // Aunque el contenedor esté oculto
-
+    const totalCreditsSpan = document.getElementById('total-credits'); 
     function displayCourses(filteredCourses) {
         if (!courseCardsContainer) return;
-        courseCardsContainer.innerHTML = ''; // Limpiar tarjetas existentes
+        courseCardsContainer.innerHTML = ''; 
 
         if (filteredCourses.length === 0) {
             courseCardsContainer.innerHTML = '<p class="no-courses-message">No courses match the current filter.</p>';
@@ -98,13 +95,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (course.completed) {
                     card.classList.add('completed');
                 }
-                // Mostrar solo el código del curso según el nuevo diseño
                 card.textContent = `${course.subject} ${course.number}`;
                 courseCardsContainer.appendChild(card);
             });
         }
 
-        // Calcular créditos totales (aunque el span esté en un div oculto)
         if (totalCreditsSpan) {
             const currentTotalCredits = filteredCourses.reduce((sum, course) => sum + course.credits, 0);
             totalCreditsSpan.textContent = currentTotalCredits;
@@ -129,22 +124,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else if (filterType === 'cse') {
                     filteredCourses = courses.filter(course => course.subject.toUpperCase() === 'CSE');
                 }
-                // 'all' usa el array completo por defecto
+                
                 
                 displayCourses(filteredCourses);
                 setActiveFilterButton(button);
             });
         });
 
-        // Mostrar todos los cursos inicialmente y activar el botón "All"
         const initialActiveButton = document.querySelector('#course-filters button[data-filter="all"]');
         if (initialActiveButton) {
              setActiveFilterButton(initialActiveButton);
         }
-        displayCourses(courses); // Mostrar todos los cursos al cargar
+        displayCourses(courses); 
 
     } else if (courseCardsContainer) {
-        // Si no hay botones de filtro (deberían estar según el HTML), mostrar todos los cursos
         displayCourses(courses);
     }
 });
