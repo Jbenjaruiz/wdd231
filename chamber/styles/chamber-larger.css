@@ -1,0 +1,97 @@
+/* chamber/styles/chamber-larger.css */
+/* Styles for larger screens (tablets and desktops) */
+
+@media (min-width: 768px) {
+    /* --- Header --- */
+    .header-content {
+        /* If you want to constrain the header content width and center it */
+        /* max-width: var(--container-max-width); */
+        /* margin: 0 auto; */
+    }
+
+    #chamber-logo {
+        width: 70px; /* Slightly larger logo */
+        height: 70px;
+    }
+
+    .site-title h1 {
+        font-size: 2rem; /* Larger site title */
+    }
+    .site-title .chamber-subtitle {
+        font-size: 1rem;
+    }
+
+    #chamber-menu-button {
+        display: none; /* Hide hamburger menu on larger screens */
+    }
+
+    /* --- Navigation --- */
+    #chamber-nav-links {
+        display: flex !important; /* Override display:none from mobile if JS set it */
+        flex-direction: row;
+        justify-content: center; /* Center nav links */
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+    }
+
+    #chamber-nav-links li {
+        width: auto; /* Allow items to size based on content */
+        border-bottom: none; /* Remove bottom border from mobile */
+    }
+    
+    #chamber-nav-links a {
+        padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5); /* Adjust padding */
+    }
+
+    /* --- Main Content --- */
+    .directory-page-main {
+        padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    }
+
+    /* Grid view for members */
+    #members-display-area.cards-grid {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+        gap: calc(var(--spacing-unit) * 3);
+    }
+    
+    /* List view adjustments for larger screens if needed */
+    #members-display-area.list-view .member-card {
+        flex-direction: row; /* Arrange items horizontally in list view on larger screens */
+        align-items: center;
+        gap: var(--spacing-unit) * 2;
+    }
+    #members-display-area.list-view .member-card img.logo {
+        display: block; /* Show logo in list view on larger screens */
+        max-width: 80px;
+        max-height: 60px;
+        margin: 0;
+    }
+    #members-display-area.list-view .member-card .member-details {
+        flex-grow: 1; /* Allow text details to take remaining space */
+    }
+
+
+    /* --- Footer --- */
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start; /* Align items to the top */
+        text-align: left; /* Align text to left in footer sections */
+    }
+
+    .footer-contact-info,
+    .footer-site-info {
+        margin-bottom: 0;
+        flex: 1; /* Allow sections to take up space */
+    }
+    .footer-site-info {
+        text-align: right; /* Align dev info to the right */
+    }
+}
+
+@media (min-width: 1024px) {
+    #members-display-area.cards-grid {
+        /* Potentially 3 or 4 columns on very large screens */
+        /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
+    }
+}

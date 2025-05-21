@@ -1,0 +1,345 @@
+/* chamber/styles/chamber-base.css */
+/* Base styles, mobile-first approach */
+
+/* --- CSS Variables --- */
+:root {
+    /* Color Palette (Blue as primary) */
+    --primary-color: #005A9C; /* A professional medium blue */
+    --primary-color-dark: #003D6B; /* A darker shade for headers/footers */
+    --primary-color-light: #E6F0F8; /* A very light blue for backgrounds or accents */
+    
+    --secondary-color: #4A4A4A; /* Dark grey for text, secondary elements */
+    --accent-color: #FDB813;    /* A warm yellow/gold for accents (e.g., active links, CTAs) */
+    
+    --text-color-dark: #333333;
+    --text-color-light: #FFFFFF;
+    --background-color-light: #FFFFFF;
+    --background-color-page: #F4F7F6; /* Light greyish page background */
+    --border-color: #D1D1D1;
+
+    /* Typography */
+    --font-heading: 'Roboto', sans-serif; /* Example: Merriweather was in HTML, using Roboto here for a cleaner look */
+    --font-body: 'Open Sans', sans-serif;    /* Example: Lato was in HTML, using Open Sans */
+    --base-font-size: 16px;
+    --line-height-base: 1.6;
+
+    /* Spacing & Sizing */
+    --spacing-unit: 8px;
+    --border-radius-small: 4px;
+    --border-radius-medium: 6px;
+    --container-max-width: 1200px;
+
+    /* Shadows */
+    --shadow-soft: 0 2px 5px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Basic Resets & Body --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: var(--base-font-size);
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: var(--line-height-base);
+    color: var(--text-color-dark);
+    background-color: var(--background-color-page);
+    margin: 0; /* normalize.css handles this, but good to be explicit */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+a:hover {
+    text-decoration: underline;
+    color: var(--primary-color-dark);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    margin-top: 0;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    font-weight: 700;
+}
+
+h1 { font-size: 2.25rem; } /* Approx 36px */
+h2 { font-size: 1.75rem; } /* Approx 28px */
+h3 { font-size: 1.25rem; } /* Approx 20px */
+
+/* --- Header --- */
+header {
+    background-color: var(--primary-color-dark);
+    color: var(--text-color-light);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+}
+
+#chamber-logo {
+    width: 50px; /* Adjust as needed */
+    height: 50px;
+    /* background-color: white; /* If SVG has transparent parts and needs bg */
+    /* border-radius: var(--border-radius-small); */
+}
+
+.site-title h1 {
+    font-size: 1.5rem; /* Approx 24px */
+    margin: 0;
+    color: var(--text-color-light);
+}
+
+.site-title .chamber-subtitle {
+    font-size: 0.875rem; /* Approx 14px */
+    margin: 0;
+    color: var(--primary-color-light); /* Lighter text for subtitle */
+}
+
+#chamber-menu-button {
+    background: none;
+    border: none;
+    color: var(--text-color-light);
+    font-size: 2rem; /* Makes the hamburger icon larger */
+    cursor: pointer;
+    padding: var(--spacing-unit);
+    display: block; /* Visible on mobile */
+}
+
+/* --- Navigation --- */
+#chamber-nav {
+    background-color: var(--primary-color);
+}
+
+#chamber-nav-links {
+    display: none; /* Hidden by default, JS will toggle */
+    flex-direction: column;
+}
+
+#chamber-nav-links.open {
+    display: flex;
+}
+
+#chamber-nav-links li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+#chamber-nav-links li:last-child {
+    border-bottom: none;
+}
+
+#chamber-nav-links a {
+    display: block;
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2);
+    text-align: center;
+    color: var(--text-color-light);
+    font-weight: 700;
+    transition: background-color 0.2s ease-in-out;
+}
+
+#chamber-nav-links a:hover,
+#chamber-nav-links a.active {
+    background-color: var(--primary-color-dark);
+    color: var(--accent-color); /* Highlight active/hovered link */
+}
+
+/* --- Main Content --- */
+.directory-page-main {
+    padding: calc(var(--spacing-unit) * 2);
+    flex-grow: 1;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.directory-page-main h2 { /* "Member Directory" title */
+    text-align: center;
+    color: var(--primary-color-dark);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+/* View Toggle Buttons */
+.view-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+.view-btn {
+    background-color: var(--background-color-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.view-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.view-btn:hover {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+}
+
+.view-btn.active-view {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border-color: var(--primary-color-dark);
+}
+.view-btn.active-view svg {
+    fill: var(--text-color-light);
+}
+
+
+/* Members Display Area (initial mobile: list view is often better, but let's default to grid and make list specific) */
+#members-display-area {
+    display: grid; /* Default to grid, will be single column on mobile */
+    gap: calc(var(--spacing-unit) * 2);
+}
+
+/* Card styles (for grid view) */
+.member-card {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    padding: calc(var(--spacing-unit) * 2);
+    box-shadow: var(--shadow-soft);
+    text-align: center; /* Default for card content */
+}
+
+.member-card img.logo { /* Assuming logos will have class 'logo' */
+    max-width: 100px; /* Or adjust as needed */
+    max-height: 80px;
+    margin: 0 auto calc(var(--spacing-unit) * 1.5) auto;
+    object-fit: contain;
+}
+
+.member-card h3 { /* Company Name */
+    font-size: 1.2rem;
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-unit);
+}
+
+.member-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    line-height: 1.5;
+}
+.member-card p.address {
+    font-style: italic;
+}
+
+.member-card a.website {
+    display: inline-block;
+    margin-top: var(--spacing-unit);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+/* List view styles (will be applied when .list-view class is on #members-display-area) */
+#members-display-area.list-view .member-card {
+    display: flex;
+    flex-direction: column; /* Default stacking for items within a list item card */
+    text-align: left; /* Align text to left in list view */
+    padding: var(--spacing-unit); /* Less padding for list items */
+    margin-bottom: var(--spacing-unit); /* Space between list items */
+}
+
+#members-display-area.list-view .member-card img.logo {
+    display: none; /* Optionally hide logos in list view to save space, or style differently */
+}
+
+#members-display-area.list-view .member-card h3 {
+    font-size: 1.1rem; /* Slightly smaller for list view */
+}
+
+
+.loading-message {
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 3);
+    font-style: italic;
+    color: var(--secondary-color);
+}
+
+/* --- Footer --- */
+footer {
+    background-color: var(--primary-color-dark);
+    color: var(--primary-color-light); /* Lighter text for footer */
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    text-align: center;
+    font-size: 0.875rem; /* Approx 14px */
+}
+
+.footer-content {
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+.footer-contact-info,
+.footer-site-info {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+.footer-site-info p:last-child {
+    margin-bottom: 0;
+}
+
+.footer-contact-info h3 {
+    font-size: 1.1rem;
+    color: var(--text-color-light);
+    margin-bottom: var(--spacing-unit);
+}
+
+.footer-contact-info p,
+.footer-site-info p {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+
+#chamber-current-year,
+#chamber-last-modified {
+    font-weight: bold;
+}

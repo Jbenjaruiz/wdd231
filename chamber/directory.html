@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Member Directory - Antigua Guatemala Chamber of Commerce</title>
+    <meta name="description" content="Directory of member businesses and organizations of the Antigua Guatemala Chamber of Commerce.">
+    <meta name="author" content="Janio B. Ruiz">
+
+    <link rel="icon" href="favicon-jbr.svg" type="image/svg+xml">
+
+    <meta property="og:title" content="Member Directory - Antigua Guatemala Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://jbenjaruiz.github.io/wdd231/chamber/images/antigua-chamber-og-image.png">
+    <meta property="og:url" content="https://jbenjaruiz.github.io/wdd231/chamber/directory.html">
+    <meta property="og:description" content="Explore our member directory to connect with local businesses in Antigua Guatemala.">
+
+    <link rel="stylesheet" href="styles/normalize.css"> <link rel="stylesheet" href="styles/chamber-base.css"> <link rel="stylesheet" href="styles/chamber-larger.css"> <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="scripts/chamber-main.js" defer></script>
+    <script src="scripts/directory.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="images/antigua-logo.webp" alt="Antigua Guatemala Chamber of Commerce Logo" id="chamber-logo">
+                <div class="site-title">
+                    <h1>Antigua Guatemala</h1>
+                    <p class="chamber-subtitle">Chamber of Commerce</p>
+                </div>
+            </div>
+            <button id="chamber-menu-button" aria-label="Toggle navigation menu">☰</button>
+        </div>
+    </header>
+
+    <nav id="chamber-nav">
+        <ul id="chamber-nav-links">
+            <li><a href="index.html">Home</a></li> <li><a href="directory.html" class="active">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="directory-page-main">
+        <h2>Member Directory</h2>
+
+        <div class="view-controls">
+            <button id="grid-view-btn" class="view-btn active-view" title="Grid View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 3h8v8H3zm0 10h8v8H3zM13 3h8v8h-8zm0 10h8v8h-8z"/></svg>
+                Grid
+            </button>
+            <button id="list-view-btn" class="view-btn" title="List View">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M3 4h18v2H3zm0 7h18v2H3zm0 7h18v2H3z"/></svg>
+                List
+            </button>
+        </div>
+
+        <div id="members-display-area" class="cards-grid">
+            <p class="loading-message">Loading members...</p>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h3>Contact Us</h3>
+                <p>Antigua Guatemala Chamber of Commerce</p>
+                <p>123 Calle del Arco, Antigua Guatemala</p>
+                <p>Phone: (502) 5555-1234</p>
+                <p>Email: info@antiguachamber.org</p>
+            </div>
+            <div class="footer-site-info">
+                <p>&copy;<span id="chamber-current-year"></span> Janio B. Ruiz</p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modification: <span id="chamber-last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
