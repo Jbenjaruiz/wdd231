@@ -1,0 +1,83 @@
+# Archivos específicos de macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icono de carpeta personalizada de macOS
+Icon?
+
+# Archivos de metadatos del Finder
+._*
+
+# Archivos de Spotlight
+.Spotlight-V100
+.Trashes
+
+# Papelera de red
+.network_trash
+
+# Archivos temporales de macOS (como los de "Guardar como...")
+*~
+*.swp
+*.swo
+
+# Archivos de miniaturas (Thumbs.db es de Windows, pero por si acaso)
+Thumbs.db
+ehthumbs.db
+
+# Archivos de configuración del editor
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Archivos de compilación y dependencias (si usas preprocesadores o bundlers)
+dist/
+build/
+out/
+node_modules/
+bower_components/
+jspm_packages/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Archivos de caché
+.cache/
+*.cache
+
+# Archivos de entorno (si los tienes, deben ser privados)
+.env
+.env.local
+.env.*.local
+!.env.example
+
+# Archivos de configuración de herramientas de linting o formato (si los tienes localmente y no quieres compartirlos)
+# .eslintcache
+# .prettierignore
+# .stylelintcache
+
+# Archivos de dependencias de herramientas de desarrollo (como paquetes npm globales instalados localmente)
+# /package-lock.json # Descomenta si solo usas yarn.lock o pnpm-lock.yaml
+# /yarn.lock      # Descomenta si solo usas package-lock.json o pnpm-lock.yaml
+# /pnpm-lock.yaml # Descomenta si solo usas package-lock.json o yarn.lock
+
+# Reportes de cobertura de pruebas
+coverage/
+.nyc_output/
+
+# Archivos específicos de algunas librerías o frameworks (ajusta según sea necesario)
+# Por ejemplo, para algunas herramientas de creación de sitios estáticos:
+# .jekyll-metadata
+# .sass-cache/
+# .cache-loader/
+
+# Comentarios para una mejor organización
+###################
+# Fin del .gitignore #
+###################
