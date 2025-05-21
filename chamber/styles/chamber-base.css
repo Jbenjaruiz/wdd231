@@ -7,6 +7,7 @@
     --primary-color: #005A9C; /* A professional medium blue */
     --primary-color-dark: #003D6B; /* A darker shade for headers/footers */
     --primary-color-light: #E6F0F8; /* A very light blue for backgrounds or accents */
+    --zebra-stripe-color: #EFF7FB; /* Lighter blue for zebra striping, adjust as needed */
     
     --secondary-color: #4A4A4A; /* Dark grey for text, secondary elements */
     --accent-color: #FDB813;    /* A warm yellow/gold for accents (e.g., active links, CTAs) */
@@ -18,8 +19,8 @@
     --border-color: #D1D1D1;
 
     /* Typography */
-    --font-heading: 'Roboto', sans-serif; /* Example: Merriweather was in HTML, using Roboto here for a cleaner look */
-    --font-body: 'Open Sans', sans-serif;    /* Example: Lato was in HTML, using Open Sans */
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
     --base-font-size: 16px;
     --line-height-base: 1.6;
 
@@ -50,7 +51,7 @@ body {
     line-height: var(--line-height-base);
     color: var(--text-color-dark);
     background-color: var(--background-color-page);
-    margin: 0; /* normalize.css handles this, but good to be explicit */
+    margin: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -86,9 +87,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
 }
 
-h1 { font-size: 2.25rem; } /* Approx 36px */
-h2 { font-size: 1.75rem; } /* Approx 28px */
-h3 { font-size: 1.25rem; } /* Approx 20px */
+h1 { font-size: 2.25rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.25rem; }
 
 /* --- Header --- */
 header {
@@ -112,32 +113,30 @@ header {
 }
 
 #chamber-logo {
-    width: 50px; /* Adjust as needed */
+    width: 50px;
     height: 50px;
-    /* background-color: white; /* If SVG has transparent parts and needs bg */
-    /* border-radius: var(--border-radius-small); */
 }
 
 .site-title h1 {
-    font-size: 1.5rem; /* Approx 24px */
+    font-size: 1.5rem;
     margin: 0;
     color: var(--text-color-light);
 }
 
 .site-title .chamber-subtitle {
-    font-size: 0.875rem; /* Approx 14px */
+    font-size: 0.875rem;
     margin: 0;
-    color: var(--primary-color-light); /* Lighter text for subtitle */
+    color: var(--primary-color-light);
 }
 
 #chamber-menu-button {
     background: none;
     border: none;
     color: var(--text-color-light);
-    font-size: 2rem; /* Makes the hamburger icon larger */
+    font-size: 2rem;
     cursor: pointer;
     padding: var(--spacing-unit);
-    display: block; /* Visible on mobile */
+    display: block;
 }
 
 /* --- Navigation --- */
@@ -146,7 +145,7 @@ header {
 }
 
 #chamber-nav-links {
-    display: none; /* Hidden by default, JS will toggle */
+    display: none;
     flex-direction: column;
 }
 
@@ -175,7 +174,7 @@ header {
 #chamber-nav-links a:hover,
 #chamber-nav-links a.active {
     background-color: var(--primary-color-dark);
-    color: var(--accent-color); /* Highlight active/hovered link */
+    color: var(--accent-color);
 }
 
 /* --- Main Content --- */
@@ -187,7 +186,7 @@ header {
     width: 100%;
 }
 
-.directory-page-main h2 { /* "Member Directory" title */
+.directory-page-main h2 {
     text-align: center;
     color: var(--primary-color-dark);
     margin-bottom: calc(var(--spacing-unit) * 3);
@@ -218,6 +217,7 @@ header {
 .view-btn svg {
     width: 20px;
     height: 20px;
+    fill: currentColor; /* Make SVG icon color inherit from button text color */
 }
 
 .view-btn:hover {
@@ -230,76 +230,132 @@ header {
     color: var(--text-color-light);
     border-color: var(--primary-color-dark);
 }
-.view-btn.active-view svg {
-    fill: var(--text-color-light);
-}
+/* SVG color for active button is handled by currentColor inheriting from text color */
 
 
-/* Members Display Area (initial mobile: list view is often better, but let's default to grid and make list specific) */
-#members-display-area {
-    display: grid; /* Default to grid, will be single column on mobile */
+/* Members Display Area */
+/* Default to grid styles, single column on mobile */
+#members-display-area.cards-grid {
+    display: grid;
     gap: calc(var(--spacing-unit) * 2);
 }
 
 /* Card styles (for grid view) */
-.member-card {
+#members-display-area.cards-grid .member-card {
     background-color: var(--background-color-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-medium);
     padding: calc(var(--spacing-unit) * 2);
     box-shadow: var(--shadow-soft);
-    text-align: center; /* Default for card content */
+    text-align: center;
 }
 
-.member-card img.logo { /* Assuming logos will have class 'logo' */
-    max-width: 100px; /* Or adjust as needed */
+#members-display-area.cards-grid .member-card img.logo {
+    max-width: 100px;
     max-height: 80px;
     margin: 0 auto calc(var(--spacing-unit) * 1.5) auto;
     object-fit: contain;
 }
 
-.member-card h3 { /* Company Name */
+#members-display-area.cards-grid .member-card h3 {
     font-size: 1.2rem;
     color: var(--primary-color-dark);
     margin-bottom: var(--spacing-unit);
 }
 
-.member-card p {
+#members-display-area.cards-grid .member-card p {
     font-size: 0.9rem;
     color: var(--secondary-color);
     margin-bottom: calc(var(--spacing-unit) * 0.75);
     line-height: 1.5;
 }
-.member-card p.address {
+#members-display-area.cards-grid .member-card p.address {
     font-style: italic;
 }
 
-.member-card a.website {
+#members-display-area.cards-grid .member-card a.website {
     display: inline-block;
     margin-top: var(--spacing-unit);
     font-size: 0.9rem;
     font-weight: bold;
 }
 
-/* List view styles (will be applied when .list-view class is on #members-display-area) */
+/* List view styles */
+#members-display-area.list-view {
+    display: block; /* Override grid display */
+}
+
 #members-display-area.list-view .member-card {
     display: flex;
-    flex-direction: column; /* Default stacking for items within a list item card */
-    text-align: left; /* Align text to left in list view */
-    padding: var(--spacing-unit); /* Less padding for list items */
-    margin-bottom: var(--spacing-unit); /* Space between list items */
+    flex-wrap: wrap; /* Allow items to wrap on very small screens if necessary */
+    justify-content: space-between;
+    align-items: flex-start; /* Align items to the start of the cross axis */
+    padding: calc(var(--spacing-unit) * 1.25) var(--spacing-unit); /* Adjusted padding */
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    border-radius: 0; /* No border radius for list items */
 }
 
-#members-display-area.list-view .member-card img.logo {
-    display: none; /* Optionally hide logos in list view to save space, or style differently */
+#members-display-area.list-view .member-card:nth-child(odd) {
+    background-color: var(--zebra-stripe-color); /* Light blue for odd rows */
+}
+#members-display-area.list-view .member-card:nth-child(even) {
+    background-color: var(--background-color-light); /* White for even rows */
+}
+#members-display-area.list-view .member-card:last-child {
+    border-bottom: none;
 }
 
-#members-display-area.list-view .member-card h3 {
-    font-size: 1.1rem; /* Slightly smaller for list view */
+#members-display-area.list-view .member-card img.logo,
+#members-display-area.list-view .member-card p.description {
+    display: none; /* Hide logo and full description in list view */
 }
 
+#members-display-area.list-view .member-card .member-details {
+    display: contents; /* Children of .member-details act as direct children of .member-card (flex container) */
+}
 
-.loading-message {
+/* Styling for individual data points in list view */
+#members-display-area.list-view .member-card h3, /* Name */
+#members-display-area.list-view .member-card p.address,
+#members-display-area.list-view .member-card p.phone,
+#members-display-area.list-view .member-card a.website {
+    margin: 0;
+    padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 0.75);
+    font-size: 0.9rem; /* Consistent font size for list items */
+    line-height: 1.4;
+    /* Default flex properties, can be overridden below */
+    flex-grow: 0;
+    flex-shrink: 1;
+    flex-basis: auto;
+}
+
+#members-display-area.list-view .member-card h3 { /* Name */
+    flex-basis: 25%; /* Example basis, adjust with other elements */
+    min-width: 120px; /* Ensure name has some space */
+    font-weight: bold;
+    color: var(--primary-color-dark);
+}
+#members-display-area.list-view .member-card p.address {
+    flex-basis: 35%;
+    min-width: 150px;
+    color: var(--secondary-color);
+}
+#members-display-area.list-view .member-card p.phone {
+    flex-basis: 20%;
+    min-width: 100px;
+    color: var(--secondary-color);
+}
+#members-display-area.list-view .member-card a.website {
+    flex-basis: 20%;
+    min-width: 120px;
+    text-decoration: underline;
+    word-break: break-all; /* Prevent long URLs from breaking layout */
+}
+
+.loading-message, .no-members-message, .error-message {
     text-align: center;
     padding: calc(var(--spacing-unit) * 3);
     font-style: italic;
@@ -309,10 +365,10 @@ header {
 /* --- Footer --- */
 footer {
     background-color: var(--primary-color-dark);
-    color: var(--primary-color-light); /* Lighter text for footer */
+    color: var(--primary-color-light);
     padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
     text-align: center;
-    font-size: 0.875rem; /* Approx 14px */
+    font-size: 0.875rem;
 }
 
 .footer-content {
