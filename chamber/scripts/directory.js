@@ -29,8 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Image (logo)
         if (member.imageFileName) {
             const img = document.createElement('img');
-            img.src = `images/logos/commerce-thumbnail.avif`;
-            //img.src = `images/logos/${member.imageFileName}`; // Assuming logos are in images/logos/
+            img.src = `images/logos/${member.imageFileName}`; // Assuming logos are in images/logos/
             img.alt = `${member.name} Logo`;
             img.classList.add('logo');
             img.loading = 'lazy'; // Lazy load images

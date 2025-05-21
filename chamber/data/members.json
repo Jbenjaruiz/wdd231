@@ -4,7 +4,7 @@
         "address": "2a North Avenue #11, Antigua Guatemala",
         "phone": "+502 7720-7272",
         "websiteURL": "https://www.elconventoantigua.com/",
-        "imageFileName": "el_convento_logo.png",
+        "imageFileName": "el-convento-logo.svg",
         "membershipLevel": 3,
         "description": "Luxury boutique hotel in a restored 16th-century convent, offering a unique and elegant experience."
     },
@@ -13,7 +13,7 @@
         "address": "4a East Street #21, Antigua Guatemala",
         "phone": "+502 7832-0000",
         "websiteURL": "https://www.weltenantigua.com/",
-        "imageFileName": "welten_logo.png",
+        "imageFileName": "welten-logo.svg",
         "membershipLevel": 2,
         "description": "International and Guatemalan cuisine in a colonial atmosphere with a garden. Ideal for lunch and dinner."
     },
@@ -22,7 +22,7 @@
         "address": "5a South Avenue Final, Antigua Guatemala",
         "phone": "+502 7832-5427",
         "websiteURL": "https://www.caobafarms.com/",
-        "imageFileName": "caoba_farms_logo.png",
+        "imageFileName": "caoba-farms-logo.svg",
         "membershipLevel": 2,
         "description": "Farm-to-table restaurant with fresh organic products, butterfly sanctuary, and local products store."
     },
@@ -31,7 +31,7 @@
         "address": "6a West Street #25, Antigua Guatemala",
         "phone": "+502 5550-1234",
         "websiteURL": "https://www.artisancoffeeantigua.gt",
-        "imageFileName": "artisan_coffee_logo.png",
+        "imageFileName": "artisan-coffee-logo.svg",
         "membershipLevel": 1,
         "description": "Specialty coffee shop focusing on Guatemalan origin coffee, artisanal brewing methods, and pastries."
     },
@@ -40,7 +40,7 @@
         "address": "5a North Avenue #29, Antigua Guatemala",
         "phone": "+502 7832-0001",
         "websiteURL": "http://www.nimpot.com/",
-        "imageFileName": "nimpot_logo.png",
+        "imageFileName": "nimpot-logo.svg",
         "membershipLevel": 2,
         "description": "Large artisan cooperative offering a vast selection of traditional Mayan textiles and handicrafts."
     },
@@ -49,7 +49,7 @@
         "address": "150m North of San Felipe de Jesus Church, Antigua Guatemala",
         "phone": "+502 7728-0800",
         "websiteURL": "https://www.filadelfia.com.gt/",
-        "imageFileName": "filadelfia_logo.png",
+        "imageFileName": "filadelfia-logo.svg",
         "membershipLevel": 3,
         "description": "Coffee plantation with tours, tastings, restaurant, hotel, and adventure activities like zip-lining."
     },
@@ -58,7 +58,7 @@
         "address": "4a East Street #14, Antigua Guatemala",
         "phone": "+502 7832-0219",
         "websiteURL": "https://www.chocomuseo.com/antigua-guatemala/",
-        "imageFileName": "chocomuseo_logo.png",
+        "imageFileName": "chocomuseo-logo.svg",
         "membershipLevel": 1,
         "description": "Chocolate museum with workshops to make your own chocolate, cocoa products store, and cafe."
     },
@@ -67,7 +67,7 @@
         "address": "3a North Avenue #5, Antigua Guatemala",
         "phone": "+502 7832-5821",
         "websiteURL": "https://www.antiguatours.net/",
-        "imageFileName": "antigua_tours_logo.png",
+        "imageFileName": "antigua-tours-logo.svg",
         "membershipLevel": 2,
         "description": "Cultural tours and guided walks by experts on the history and architecture of Antigua Guatemala."
     }
