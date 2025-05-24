@@ -12,6 +12,7 @@
     --secondary-color: #4A4A4A; /* Dark grey for text, secondary elements */
     --accent-color: #FDB813;    /* A warm yellow/gold for accents (e.g., active links, CTAs) */
     --cta-button-bg: var(--accent-color); /* CTA button background */
+    --cta-button-bg-hover: #EAA500; /* Darker shade of accent-color for hover */
     --cta-button-text: var(--primary-color-dark); /* CTA button text */
     
     --text-color-dark: #333333;
@@ -180,21 +181,21 @@ header {
 }
 
 /* --- Main Content General --- */
-main { /* Renamed from .directory-page-main to be more generic if needed */
-    padding: 0; /* Remove padding for sections to control their own */
+main { 
+    padding: 0; 
     flex-grow: 1;
     width: 100%;
 }
 
-main section { /* Common styling for sections on home page */
+main section { 
     padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
-    margin-bottom: var(--spacing-unit); /* Small gap between sections */
+    margin-bottom: var(--spacing-unit); 
 }
 main section:last-child {
     margin-bottom: 0;
 }
 
-main section h2 { /* Section titles */
+main section h2 { 
     text-align: center;
     margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
@@ -204,10 +205,10 @@ main section h2 { /* Section titles */
     position: relative;
     color: var(--text-color-light);
     text-align: center;
-    padding: 0; /* Remove default section padding */
-    background-color: var(--primary-color-dark); /* Fallback if image fails */
-    min-height: 300px; /* Minimum height */
-    display: flex; /* For centering overlay content */
+    padding: 0; 
+    background-color: var(--primary-color-dark); 
+    min-height: 300px; 
+    display: flex; 
     align-items: center;
     justify-content: center;
 }
@@ -218,14 +219,14 @@ main section h2 { /* Section titles */
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the area */
+    object-fit: cover; 
     z-index: 1;
 }
 
 .hero-overlay {
     position: relative;
     z-index: 2;
-    background-color: rgba(0, 61, 107, 0.6); /* Dark blue semi-transparent overlay */
+    background-color: rgba(0, 61, 107, 0.6); 
     padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
     border-radius: var(--border-radius-medium);
     max-width: 90%;
@@ -255,7 +256,7 @@ main section h2 { /* Section titles */
 }
 
 .cta-button:hover {
-    background-color: darken(var(--cta-button-bg), 10%);
+    background-color: var(--cta-button-bg-hover); /* MODIFICADO */
     color: var(--cta-button-text);
     text-decoration: none;
     transform: translateY(-2px);
@@ -291,7 +292,6 @@ main section h2 { /* Section titles */
 }
 
 /* --- Home Columns (Weather & Spotlights Wrapper) --- */
-/* On mobile, these will stack. Columns handled in larger.css */
 .home-columns {
     /* No specific styles needed for mobile stacking, sections control their padding */
 }
@@ -299,8 +299,7 @@ main section h2 { /* Section titles */
 /* --- Weather Section --- */
 #weather-info {
     background-color: var(--primary-color-light);
-    border-radius: var(--border-radius-medium); /* If treated as a card */
-    /* padding is handled by main section rule */
+    border-radius: var(--border-radius-medium); 
 }
 #weather-info h2, #weather-info h3 {
     text-align: center;
@@ -339,7 +338,7 @@ main section h2 { /* Section titles */
 
 .forecast-container {
     display: flex;
-    flex-direction: column; /* Stack forecast items on mobile */
+    flex-direction: column; 
     gap: var(--spacing-unit);
     text-align: center;
 }
@@ -366,8 +365,7 @@ main section h2 { /* Section titles */
     display: grid;
     gap: calc(var(--spacing-unit) * 2);
 }
-/* .spotlight-card will reuse .member-card styles from directory for consistency */
-/* We can add specific overrides if needed */
+
 .spotlight-card {
     background-color: var(--background-color-light);
     border: 1px solid var(--border-color);
@@ -406,13 +404,85 @@ main section h2 { /* Section titles */
 }
 
 
-/* --- Directory Page Specific Styles (from previous work, ensure they don't conflict or move to separate file if too large) --- */
-/* View Toggle Buttons (already styled above) */
-/* Members Display Area (already has base styles) */
-#members-display-area.cards-grid .member-card { /* Grid view specific for directory */
-    /* Styles from previous iteration are mostly fine */
+/* --- Directory Page Specific Styles --- */
+.view-controls {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) * 3);
 }
-#members-display-area.list-view { /* List view specific for directory */
+
+.view-btn {
+    background-color: var(--background-color-light);
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: calc(var(--spacing-unit) / 2);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+.view-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor; 
+}
+
+.view-btn:hover {
+    background-color: var(--primary-color-light);
+    color: var(--primary-color-dark);
+}
+
+.view-btn.active-view {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border-color: var(--primary-color-dark);
+}
+
+#members-display-area.cards-grid { 
+    display: grid;
+    gap: calc(var(--spacing-unit) * 2);
+}
+#members-display-area.cards-grid .member-card { 
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    padding: calc(var(--spacing-unit) * 2);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+}
+#members-display-area.cards-grid .member-card img.logo {
+    max-width: 100px;
+    max-height: 80px;
+    margin: 0 auto calc(var(--spacing-unit) * 1.5) auto;
+    object-fit: contain;
+}
+#members-display-area.cards-grid .member-card h3 {
+    font-size: 1.2rem;
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-unit);
+}
+#members-display-area.cards-grid .member-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+    line-height: 1.5;
+}
+#members-display-area.cards-grid .member-card p.address {
+    font-style: italic;
+}
+#members-display-area.cards-grid .member-card a.website {
+    display: inline-block;
+    margin-top: var(--spacing-unit);
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+#members-display-area.list-view { 
     display: block; 
 }
 #members-display-area.list-view .member-card {
