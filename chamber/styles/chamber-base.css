@@ -7,15 +7,17 @@
     --primary-color: #005A9C; /* A professional medium blue */
     --primary-color-dark: #003D6B; /* A darker shade for headers/footers */
     --primary-color-light: #E6F0F8; /* A very light blue for backgrounds or accents */
-    --zebra-stripe-color: #EFF7FB; /* Lighter blue for zebra striping, adjust as needed */
+    --zebra-stripe-color: #EFF7FB; 
     
     --secondary-color: #4A4A4A; /* Dark grey for text, secondary elements */
     --accent-color: #FDB813;    /* A warm yellow/gold for accents (e.g., active links, CTAs) */
+    --cta-button-bg: var(--accent-color); /* CTA button background */
+    --cta-button-text: var(--primary-color-dark); /* CTA button text */
     
     --text-color-dark: #333333;
     --text-color-light: #FFFFFF;
     --background-color-light: #FFFFFF;
-    --background-color-page: #F4F7F6; /* Light greyish page background */
+    --background-color-page: #F4F7F6; 
     --border-color: #D1D1D1;
 
     /* Typography */
@@ -88,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2.25rem; }
-h2 { font-size: 1.75rem; }
+h2 { font-size: 1.75rem; color: var(--primary-color-dark); } /* General H2 styling */
 h3 { font-size: 1.25rem; }
 
 /* --- Header --- */
@@ -177,71 +179,196 @@ header {
     color: var(--accent-color);
 }
 
-/* --- Main Content --- */
-.directory-page-main {
-    padding: calc(var(--spacing-unit) * 2);
+/* --- Main Content General --- */
+main { /* Renamed from .directory-page-main to be more generic if needed */
+    padding: 0; /* Remove padding for sections to control their own */
     flex-grow: 1;
-    max-width: var(--container-max-width);
-    margin: 0 auto;
     width: 100%;
 }
 
-.directory-page-main h2 {
+main section { /* Common styling for sections on home page */
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    margin-bottom: var(--spacing-unit); /* Small gap between sections */
+}
+main section:last-child {
+    margin-bottom: 0;
+}
+
+main section h2 { /* Section titles */
     text-align: center;
-    color: var(--primary-color-dark);
-    margin-bottom: calc(var(--spacing-unit) * 3);
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
 
-/* View Toggle Buttons */
-.view-controls {
-    display: flex;
-    justify-content: center;
-    gap: var(--spacing-unit);
-    margin-bottom: calc(var(--spacing-unit) * 3);
-}
-
-.view-btn {
-    background-color: var(--background-color-light);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
-    border-radius: var(--border-radius-small);
-    cursor: pointer;
-    font-size: 0.9rem;
-    font-weight: 700;
-    display: inline-flex;
-    align-items: center;
-    gap: calc(var(--spacing-unit) / 2);
-    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
-}
-.view-btn svg {
-    width: 20px;
-    height: 20px;
-    fill: currentColor; /* Make SVG icon color inherit from button text color */
-}
-
-.view-btn:hover {
-    background-color: var(--primary-color-light);
-    color: var(--primary-color-dark);
-}
-
-.view-btn.active-view {
-    background-color: var(--primary-color);
+/* --- Hero Section --- */
+#hero {
+    position: relative;
     color: var(--text-color-light);
-    border-color: var(--primary-color-dark);
+    text-align: center;
+    padding: 0; /* Remove default section padding */
+    background-color: var(--primary-color-dark); /* Fallback if image fails */
+    min-height: 300px; /* Minimum height */
+    display: flex; /* For centering overlay content */
+    align-items: center;
+    justify-content: center;
 }
-/* SVG color for active button is handled by currentColor inheriting from text color */
 
+#hero picture, #hero img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Cover the area */
+    z-index: 1;
+}
 
-/* Members Display Area */
-/* Default to grid styles, single column on mobile */
-#members-display-area.cards-grid {
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+    background-color: rgba(0, 61, 107, 0.6); /* Dark blue semi-transparent overlay */
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius-medium);
+    max-width: 90%;
+}
+
+.hero-overlay h2 {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-unit);
+    color: var(--text-color-light);
+}
+
+.hero-overlay p {
+    font-size: 1.1rem;
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+
+.cta-button {
+    background-color: var(--cta-button-bg);
+    color: var(--cta-button-text);
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+    border-radius: var(--border-radius-small);
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.cta-button:hover {
+    background-color: darken(var(--cta-button-bg), 10%);
+    color: var(--cta-button-text);
+    text-decoration: none;
+    transform: translateY(-2px);
+}
+
+/* --- Current Events Section --- */
+#current-events {
+    background-color: var(--background-color-light);
+}
+
+.events-container {
     display: grid;
     gap: calc(var(--spacing-unit) * 2);
 }
 
-/* Card styles (for grid view) */
-#members-display-area.cards-grid .member-card {
+.event-card {
+    border: 1px solid var(--border-color);
+    padding: calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius-medium);
+    background-color: var(--primary-color-light);
+}
+
+.event-card h3 {
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-unit);
+}
+.event-card p {
+    font-size: 0.9rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+.event-card a {
+    font-weight: bold;
+}
+
+/* --- Home Columns (Weather & Spotlights Wrapper) --- */
+/* On mobile, these will stack. Columns handled in larger.css */
+.home-columns {
+    /* No specific styles needed for mobile stacking, sections control their padding */
+}
+
+/* --- Weather Section --- */
+#weather-info {
+    background-color: var(--primary-color-light);
+    border-radius: var(--border-radius-medium); /* If treated as a card */
+    /* padding is handled by main section rule */
+}
+#weather-info h2, #weather-info h3 {
+    text-align: center;
+    color: var(--primary-color-dark);
+}
+#weather-info h3 {
+    font-size: 1.2rem;
+    margin-top: calc(var(--spacing-unit) * 2.5);
+    margin-bottom: var(--spacing-unit);
+}
+
+.weather-current-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    text-align: center;
+}
+.weather-current-display img {
+    width: 70px;
+    height: 70px;
+}
+.weather-current-display p:first-of-type { /* Temperature */
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    margin: 0;
+}
+.weather-current-display p:last-of-type { /* Description */
+    font-size: 1rem;
+    font-style: italic;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.forecast-container {
+    display: flex;
+    flex-direction: column; /* Stack forecast items on mobile */
+    gap: var(--spacing-unit);
+    text-align: center;
+}
+.forecast-item, .forecast-item-placeholder {
+    background-color: var(--background-color-light);
+    padding: var(--spacing-unit);
+    border-radius: var(--border-radius-small);
+    border: 1px solid var(--border-color);
+}
+.forecast-day {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+}
+.forecast-temp {
+    font-size: 1.1rem;
+}
+
+/* --- Member Spotlights Section --- */
+#member-spotlights {
+    background-color: var(--background-color-light);
+}
+#spotlight-cards-container {
+    display: grid;
+    gap: calc(var(--spacing-unit) * 2);
+}
+/* .spotlight-card will reuse .member-card styles from directory for consistency */
+/* We can add specific overrides if needed */
+.spotlight-card {
     background-color: var(--background-color-light);
     border: 1px solid var(--border-color);
     border-radius: var(--border-radius-medium);
@@ -249,92 +376,88 @@ header {
     box-shadow: var(--shadow-soft);
     text-align: center;
 }
-
-#members-display-area.cards-grid .member-card img.logo {
+.spotlight-card img.logo {
     max-width: 100px;
     max-height: 80px;
     margin: 0 auto calc(var(--spacing-unit) * 1.5) auto;
     object-fit: contain;
 }
-
-#members-display-area.cards-grid .member-card h3 {
+.spotlight-card h3 {
     font-size: 1.2rem;
     color: var(--primary-color-dark);
     margin-bottom: var(--spacing-unit);
 }
-
-#members-display-area.cards-grid .member-card p {
+.spotlight-card p {
     font-size: 0.9rem;
     color: var(--secondary-color);
     margin-bottom: calc(var(--spacing-unit) * 0.75);
-    line-height: 1.5;
 }
-#members-display-area.cards-grid .member-card p.address {
-    font-style: italic;
-}
-
-#members-display-area.cards-grid .member-card a.website {
+.spotlight-card a.website {
     display: inline-block;
     margin-top: var(--spacing-unit);
     font-size: 0.9rem;
     font-weight: bold;
 }
-
-/* List view styles */
-#members-display-area.list-view {
-    display: block; /* Override grid display */
+.spotlight-card p.membership-level {
+    font-size: 0.8rem;
+    font-style: italic;
+    color: var(--primary-color);
+    margin-top: var(--spacing-unit);
 }
 
+
+/* --- Directory Page Specific Styles (from previous work, ensure they don't conflict or move to separate file if too large) --- */
+/* View Toggle Buttons (already styled above) */
+/* Members Display Area (already has base styles) */
+#members-display-area.cards-grid .member-card { /* Grid view specific for directory */
+    /* Styles from previous iteration are mostly fine */
+}
+#members-display-area.list-view { /* List view specific for directory */
+    display: block; 
+}
 #members-display-area.list-view .member-card {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap on very small screens if necessary */
+    flex-wrap: wrap; 
     justify-content: space-between;
-    align-items: flex-start; /* Align items to the start of the cross axis */
-    padding: calc(var(--spacing-unit) * 1.25) var(--spacing-unit); /* Adjusted padding */
+    align-items: flex-start; 
+    padding: calc(var(--spacing-unit) * 1.25) var(--spacing-unit); 
     border: none;
     box-shadow: none;
     border-bottom: 1px solid var(--border-color);
     text-align: left;
-    border-radius: 0; /* No border radius for list items */
+    border-radius: 0; 
 }
-
 #members-display-area.list-view .member-card:nth-child(odd) {
-    background-color: var(--zebra-stripe-color); /* Light blue for odd rows */
+    background-color: var(--zebra-stripe-color); 
 }
 #members-display-area.list-view .member-card:nth-child(even) {
-    background-color: var(--background-color-light); /* White for even rows */
+    background-color: var(--background-color-light); 
 }
 #members-display-area.list-view .member-card:last-child {
     border-bottom: none;
 }
-
 #members-display-area.list-view .member-card img.logo,
 #members-display-area.list-view .member-card p.description {
-    display: none; /* Hide logo and full description in list view */
+    display: none; 
 }
-
 #members-display-area.list-view .member-card .member-details {
-    display: contents; /* Children of .member-details act as direct children of .member-card (flex container) */
+    display: contents; 
 }
-
-/* Styling for individual data points in list view */
-#members-display-area.list-view .member-card h3, /* Name */
+#members-display-area.list-view .member-card h3, 
 #members-display-area.list-view .member-card p.address,
 #members-display-area.list-view .member-card p.phone,
 #members-display-area.list-view .member-card a.website {
     margin: 0;
     padding: calc(var(--spacing-unit) * 0.5) calc(var(--spacing-unit) * 0.75);
-    font-size: 0.9rem; /* Consistent font size for list items */
+    font-size: 0.9rem; 
     line-height: 1.4;
-    /* Default flex properties, can be overridden below */
     flex-grow: 0;
     flex-shrink: 1;
     flex-basis: auto;
 }
-
-#members-display-area.list-view .member-card h3 { /* Name */
-    flex-basis: 25%; /* Example basis, adjust with other elements */
-    min-width: 120px; /* Ensure name has some space */
+#members-display-area.list-view .member-card h3 { 
+    flex-basis: 25%; 
+    min-width: 120px; 
     font-weight: bold;
     color: var(--primary-color-dark);
 }
@@ -352,10 +475,10 @@ header {
     flex-basis: 20%;
     min-width: 120px;
     text-decoration: underline;
-    word-break: break-all; /* Prevent long URLs from breaking layout */
+    word-break: break-all; 
 }
 
-.loading-message, .no-members-message, .error-message {
+.loading-message, .no-members-message, .error-message, .no-spotlights-message {
     text-align: center;
     padding: calc(var(--spacing-unit) * 3);
     font-style: italic;

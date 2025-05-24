@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Antigua Guatemala Chamber of Commerce - Promoting Local Business</title>
+    <meta name="description" content="Welcome to the Antigua Guatemala Chamber of Commerce. Your resource for local businesses, events, and community development.">
+    <meta name="author" content="Janio B. Ruiz">
+
+    <link rel="icon" href="favicon-jbr.svg" type="image/svg+xml">
+
+    <meta property="og:title" content="Antigua Guatemala Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://jbenjaruiz.github.io/wdd231/chamber/images/antigua-chamber-og-home.png"> <meta property="og:url" content="https://jbenjaruiz.github.io/wdd231/chamber/index.html">
+    <meta property="og:description" content="Join us in fostering economic growth and community spirit in Antigua Guatemala. Discover local businesses, events, and resources.">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-base.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="scripts/chamber-main.js" defer></script>
+    <script src="scripts/home.js" defer></script> </head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="favicon-jbr.svg" alt="Antigua Guatemala Chamber of Commerce Logo" id="chamber-logo">
+                <div class="site-title">
+                    <h1>Antigua Guatemala</h1>
+                    <p class="chamber-subtitle">Chamber of Commerce</p>
+                </div>
+            </div>
+            <button id="chamber-menu-button" aria-label="Toggle navigation menu">☰</button>
+        </div>
+    </header>
+
+    <nav id="chamber-nav">
+        <ul id="chamber-nav-links">
+            <li><a href="index.html" class="active">Home</a></li> <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="home-page-main">
+        <section id="hero">
+            <picture>
+                <source media="(max-width: 500px)" srcset="images/antigua-logo.webp">
+                <source media="(max-width: 1000px)" srcset="images/antigua-logo.webp">
+                <img src="images/antigua-logo.webp" alt="Scenic view of Antigua Guatemala with volcano">
+            </picture>
+            <div class="hero-overlay">
+                <h2>Fostering Growth in Antigua</h2>
+                <p>Your partner in business and community development.</p>
+                <a href="join.html" class="cta-button">Become a Member</a>
+            </div>
+        </section>
+
+        <section id="current-events">
+            <h2>Current Events</h2>
+            <div class="events-container">
+                <article class="event-card">
+                    <h3>Annual Business Gala</h3>
+                    <p><strong>Date:</strong> July 15, 2025</p>
+                    <p>Join us for an evening of celebration and networking. Keynote speaker, awards, and more. <a href="#">Read More...</a></p>
+                </article>
+                <article class="event-card">
+                    <h3>Workshop: Digital Marketing for Small Businesses</h3>
+                    <p><strong>Date:</strong> June 5, 2025</p>
+                    <p>Learn essential digital marketing strategies to boost your business online. Limited seats! <a href="#">Register Now...</a></p>
+                </article>
+                </div>
+        </section>
+
+        <div class="home-columns"> <section id="weather-info">
+                <h2>Local Weather - Antigua Guatemala</h2>
+                <div class="weather-current-display">
+                    <img id="weather-api-icon" src="images/weather_placeholder.png" alt="Current weather icon" width="70" height="70">
+                    <p><span id="current-temperature">--</span>&deg;C</p>
+                    <p id="weather-description">Loading...</p>
+                </div>
+                <h3>3-Day Forecast</h3>
+                <div id="weather-forecast-display" class="forecast-container">
+                    <div class="forecast-item-placeholder">Day 1: --&deg;C</div>
+                    <div class="forecast-item-placeholder">Day 2: --&deg;C</div>
+                    <div class="forecast-item-placeholder">Day 3: --&deg;C</div>
+                </div>
+            </section>
+
+            <section id="member-spotlights">
+                <h2>Member Spotlights</h2>
+                <div id="spotlight-cards-container">
+                    <p class="loading-message">Loading spotlights...</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h3>Contact Us</h3>
+                <p>Antigua Guatemala Chamber of Commerce</p>
+                <p>123 Calle del Arco, Antigua Guatemala</p>
+                <p>Phone: (502) 5555-1234</p>
+                <p>Email: info@antiguachamber.org</p>
+            </div>
+            <div class="footer-site-info">
+                <p>&copy;<span id="chamber-current-year"></span> Janio B. Ruiz</p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modification: <span id="chamber-last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

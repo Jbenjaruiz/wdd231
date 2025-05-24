@@ -3,11 +3,6 @@
 
 @media (min-width: 768px) {
     /* --- Header --- */
-    .header-content {
-        /* max-width: var(--container-max-width); */
-        /* margin: 0 auto; */
-    }
-
     #chamber-logo {
         width: 70px;
         height: 70px;
@@ -42,35 +37,106 @@
         padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
     }
 
-    /* --- Main Content --- */
-    .directory-page-main {
-        padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    /* --- Main Content General --- */
+    main section { /* Common styling for sections on home page */
+        padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
+        max-width: var(--container-max-width);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #hero { /* Hero takes full width, no max-width */
+        max-width: none;
+        padding: 0; /* Hero controls its own padding via overlay */
+        min-height: 400px;
     }
 
-    /* Grid view for members on larger screens */
-    #members-display-area.cards-grid {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid */
+
+    /* --- Hero Section --- */
+    .hero-overlay {
+        padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
+        max-width: 60%; /* Make overlay narrower on large screens */
+    }
+    .hero-overlay h2 {
+        font-size: 2.75rem;
+    }
+    .hero-overlay p {
+        font-size: 1.25rem;
+    }
+
+    /* --- Current Events Section --- */
+    .events-container {
+        display: grid;
+        /* Create 2 columns for events on larger screens */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: calc(var(--spacing-unit) * 3);
+    }
+
+    /* --- Home Columns (Weather & Spotlights Wrapper) --- */
+    .home-columns {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        gap: calc(var(--spacing-unit) * 3);
+        max-width: var(--container-max-width);
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 calc(var(--spacing-unit) * 2); /* Add horizontal padding to the wrapper */
+    }
+    .home-columns section { /* Sections within home-columns */
+        padding: calc(var(--spacing-unit) * 2.5); /* Adjust padding for inner sections */
+        margin-bottom: 0; /* Remove bottom margin as gap handles it */
+    }
+
+
+    /* --- Weather Section --- */
+    .weather-current-display {
+        flex-direction: row; /* Align current weather items horizontally */
+        justify-content: center;
+        gap: calc(var(--spacing-unit) * 2);
+    }
+    .forecast-container {
+        flex-direction: row; /* Align forecast items horizontally */
+        justify-content: space-around;
+    }
+    .forecast-item {
+        flex: 1; /* Allow forecast items to share space */
+        margin: 0 calc(var(--spacing-unit) * 0.5);
+    }
+
+
+    /* --- Member Spotlights Section --- */
+    #spotlight-cards-container {
+        /* If .home-columns is grid 1fr 1fr, spotlights will be in one column.
+           If you want spotlights themselves to be multi-column within their section: */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Example for 1-2 spotlights per row */
+        gap: calc(var(--spacing-unit) * 2);
+    }
+    .spotlight-card {
+        /* Styles are mostly inherited from .member-card */
+    }
+
+
+    /* --- Directory Page Specific Styles (from previous work) --- */
+    #members-display-area.cards-grid { /* Directory Grid View */
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
         gap: calc(var(--spacing-unit) * 3);
     }
     
-    /* List view adjustments for larger screens */
-    #members-display-area.list-view .member-card {
-        /* flex-wrap: nowrap; */ /* Prevent wrapping on larger screens if desired */
+    #members-display-area.list-view .member-card { /* Directory List View */
         padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
     }
-
-    #members-display-area.list-view .member-card h3 { /* Name */
-        flex-basis: 20%; /* Adjust basis for larger screens */
+    #members-display-area.list-view .member-card h3 { 
+        flex-basis: 20%; 
         font-size: 1.05rem;
     }
     #members-display-area.list-view .member-card p.address {
-        flex-basis: 30%; /* Adjust basis */
+        flex-basis: 30%; 
     }
     #members-display-area.list-view .member-card p.phone {
         flex-basis: 20%;
     }
     #members-display-area.list-view .member-card a.website {
-        flex-basis: 25%; /* Adjust basis */
+        flex-basis: 25%; 
     }
 
 
@@ -93,21 +159,17 @@
 }
 
 @media (min-width: 1024px) {
-    #members-display-area.cards-grid {
+    #members-display-area.cards-grid { /* Directory Grid View */
         /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
     }
+    .home-columns {
+        padding: 0; /* Remove padding if container-max-width is applied to main sections */
+    }
+    #spotlight-cards-container {
+        /* If you have 3 spotlights, they might fit well in a single row if .home-columns is 1fr 1fr
+           and #member-spotlights is one of those columns.
+           If you want them to stack or be more flexible: */
+        /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+    }
 
-    /* Further refinement for list view on very large screens if needed */
-    #members-display-area.list-view .member-card h3 { /* Name */
-        /* flex-basis: 15%; */
-    }
-    #members-display-area.list-view .member-card p.address {
-        /* flex-basis: 35%; */
-    }
-    #members-display-area.list-view .member-card p.phone {
-        /* flex-basis: 15%; */
-    }
-    #members-display-area.list-view .member-card a.website {
-        /* flex-basis: 30%; */
-    }
 }
