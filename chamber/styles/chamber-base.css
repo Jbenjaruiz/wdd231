@@ -593,6 +593,6 @@ footer {
     font-weight: bold;
 }
 
-h2 {
-    color: #fbfbfb; /* Reemplaza #FF0000 con el color que desees (ej. red) */
+.h2-home-title {
+        color: #fdfcfc; 
 }
