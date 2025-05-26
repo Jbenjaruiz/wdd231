@@ -592,3 +592,7 @@ footer {
 #chamber-last-modified {
     font-weight: bold;
 }
+
+h2 {
+    color: #fbfbfb; /* Reemplaza #FF0000 con el color que desees (ej. red) */
+}
