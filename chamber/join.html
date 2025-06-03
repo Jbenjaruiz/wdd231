@@ -31,7 +31,7 @@
             <div class="logo-area">
                 <img src="images/antigua-logo.webp" alt="Antigua Guatemala Chamber of Commerce Logo" id="chamber-logo">
                 <div class="site-title">
-                    <h1>Antigua Guatemala</h1>
+                    <h2 class="h2-general-title">Antigua Guatemala</h2>
                     <p class="chamber-subtitle">Chamber of Commerce</p>
                 </div>
             </div>
@@ -77,14 +77,15 @@
                         <input type="text" id="orgname" name="orgname" title="Business or Organization's Name" required autocomplete="organization">
                     </label>
                     
-                    <label for="membershiplevel">Membership Level*</label>
-                    <div class="membership-options">
-                        <label class="radio-label"><input type="radio" name="membershiplevel" value="np" required title="NP Membership (Non-Profit)"> NP Membership (No Fee)</label>
-                        <label class="radio-label"><input type="radio" name="membershiplevel" value="bronze" title="Bronze Membership"> Bronze Membership</label>
-                        <label class="radio-label"><input type="radio" name="membershiplevel" value="silver" title="Silver Membership"> Silver Membership</label>
-                        <label class="radio-label"><input type="radio" name="membershiplevel" value="gold" title="Gold Membership"> Gold Membership</label>
-                    </div>
-                    
+                    <fieldset class="membership-group">
+                        <legend>Membership Level*</legend>
+                        <div class="membership-options">
+                            <label class="radio-label" for="level-np"><input type="radio" name="membershiplevel" value="np" id="level-np" required title="NP Membership (Non-Profit)"> NP Membership (No Fee)</label>
+                            <label class="radio-label" for="level-bronze"><input type="radio" name="membershiplevel" value="bronze" id="level-bronze" title="Bronze Membership"> Bronze Membership</label>
+                            <label class="radio-label" for="level-silver"><input type="radio" name="membershiplevel" value="silver" id="level-silver" title="Silver Membership"> Silver Membership</label>
+                            <label class="radio-label" for="level-gold"><input type="radio" name="membershiplevel" value="gold" id="level-gold" title="Gold Membership"> Gold Membership</label>
+                        </div>
+                    </fieldset>
                     <label for="orgdesc">Business/Organization Description
                         <textarea id="orgdesc" name="orgdesc" title="Business or Organization's Description" rows="5"></textarea>
                     </label>
