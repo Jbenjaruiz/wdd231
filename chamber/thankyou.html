@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Application Received - Antigua Guatemala Chamber of Commerce</title>
+    <meta name="description" content="Thank you for your membership application to the Antigua Guatemala Chamber of Commerce.">
+    <meta name="author" content="Janio B. Ruiz">
+
+    <link rel="icon" href="images/favicon-jbr.svg" type="image/svg+xml">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-base.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="scripts/chamber-main.js" defer></script>
+    <script src="scripts/thankyou.js" defer></script> 
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="images/favicon-jbr.svg" alt="Antigua Guatemala Chamber of Commerce Logo" id="chamber-logo">
+                <div class="site-title">
+                    <h1>Antigua Guatemala</h1>
+                    <p class="chamber-subtitle">Chamber of Commerce</p>
+                </div>
+            </div>
+            <button id="chamber-menu-button" aria-label="Toggle navigation menu">☰</button> 
+        </div>
+    </header>
+
+    <nav id="chamber-nav">
+        <ul id="chamber-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li> 
+            <li><a href="discover.html">Discover</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="thankyou-page-main">
+        <h1>Application Received!</h1>
+        <p>Thank you for applying for membership with the Antigua Guatemala Chamber of Commerce.</p>
+        <p>We have received the following information:</p>
+        
+        <div id="submitted-data-display" class="submitted-info">
+            <p class="loading-message">Loading submitted data...</p>
+        </div>
+
+        <p>We will review your application and contact you shortly. If you have any immediate questions, please feel free to <a href="contact.html">contact us</a>.</p>
+        <p><a href="index.html" class="cta-button">Return to Homepage</a></p>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h3>Contact Us</h3>
+                <p>Antigua Guatemala Chamber of Commerce</p>
+                <p>123 Calle del Arco, Antigua Guatemala</p>
+                <p>Phone: (502) 5555-1234</p>
+                <p>Email: info@antiguachamber.org</p>
+            </div>
+            <div class="footer-site-info">
+                <p>&copy;<span id="chamber-current-year"></span> Janio B. Ruiz</p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modification: <span id="chamber-last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

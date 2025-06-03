@@ -7,14 +7,12 @@
         width: 70px;
         height: 70px;
     }
-
     .site-title h1 {
         font-size: 2rem;
     }
     .site-title .chamber-subtitle {
         font-size: 1rem;
     }
-
     #chamber-menu-button {
         display: none;
     }
@@ -27,34 +25,62 @@
         max-width: var(--container-max-width);
         margin: 0 auto;
     }
-
     #chamber-nav-links li {
         width: auto;
         border-bottom: none;
     }
-    
     #chamber-nav-links a {
         padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 2.5);
     }
 
     /* --- Main Content General --- */
-    main section { /* Common styling for sections on home page */
+    main section { 
         padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
         max-width: var(--container-max-width);
         margin-left: auto;
         margin-right: auto;
     }
-    #hero { /* Hero takes full width, no max-width */
+    #hero { 
         max-width: none;
-        padding: 0; /* Hero controls its own padding via overlay */
+        padding: 0; 
         min-height: 400px;
     }
 
+    /* --- Join Page Specific Styles --- */
+    .join-content-wrapper {
+        display: grid;
+        grid-template-columns: 2fr 1fr; /* Form takes more space */
+        gap: calc(var(--spacing-unit) * 4);
+        align-items: flex-start; /* Align items to the top */
+    }
+    #joinForm {
+        margin-bottom: 0; /* No bottom margin as gap handles it */
+    }
+    .membership-levels-info {
+        /* Sticks to the side, or can be styled as a prominent sidebar */
+        padding-top: calc(var(--spacing-unit) * 2); /* Align its H2 better with form */
+    }
+    .membership-level-cards {
+        grid-template-columns: 1fr; /* Stack cards vertically in the aside */
+        /* Or if you want 2x2 for cards: grid-template-columns: 1fr 1fr; */
+    }
+    
 
-    /* --- Hero Section --- */
+    /* --- Thank You Page Specific Styles --- */
+    .thankyou-page-main {
+        padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
+    }
+    .submitted-info {
+        max-width: 600px; /* Constrain width of submitted data block */
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    /* --- Hero Section (Home Page) --- */
     .hero-overlay {
         padding: calc(var(--spacing-unit) * 4) calc(var(--spacing-unit) * 3);
-        max-width: 60%; /* Make overlay narrower on large screens */
+        max-width: 60%; 
     }
     .hero-overlay h2 {
         font-size: 2.75rem;
@@ -63,10 +89,9 @@
         font-size: 1.25rem;
     }
 
-    /* --- Current Events Section --- */
+    /* --- Current Events Section (Home Page) --- */
     .events-container {
         display: grid;
-        /* Create 2 columns for events on larger screens */
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         gap: calc(var(--spacing-unit) * 3);
     }
@@ -74,55 +99,46 @@
     /* --- Home Columns (Weather & Spotlights Wrapper) --- */
     .home-columns {
         display: grid;
-        grid-template-columns: 1fr 1fr; /* Two equal columns */
+        grid-template-columns: 1fr 1fr; 
         gap: calc(var(--spacing-unit) * 3);
         max-width: var(--container-max-width);
         margin-left: auto;
         margin-right: auto;
-        padding: 0 calc(var(--spacing-unit) * 2); /* Add horizontal padding to the wrapper */
+        padding: 0 calc(var(--spacing-unit) * 2); 
     }
-    .home-columns section { /* Sections within home-columns */
-        padding: calc(var(--spacing-unit) * 2.5); /* Adjust padding for inner sections */
-        margin-bottom: 0; /* Remove bottom margin as gap handles it */
+    .home-columns section { 
+        padding: calc(var(--spacing-unit) * 2.5); 
+        margin-bottom: 0; 
     }
 
-
-    /* --- Weather Section --- */
+    /* --- Weather Section (Home Page) --- */
     .weather-current-display {
-        flex-direction: row; /* Align current weather items horizontally */
+        flex-direction: row; 
         justify-content: center;
         gap: calc(var(--spacing-unit) * 2);
     }
     .forecast-container {
-        flex-direction: row; /* Align forecast items horizontally */
+        flex-direction: row; 
         justify-content: space-around;
     }
     .forecast-item {
-        flex: 1; /* Allow forecast items to share space */
+        flex: 1; 
         margin: 0 calc(var(--spacing-unit) * 0.5);
     }
 
-
-    /* --- Member Spotlights Section --- */
+    /* --- Member Spotlights Section (Home Page) --- */
     #spotlight-cards-container {
-        /* If .home-columns is grid 1fr 1fr, spotlights will be in one column.
-           If you want spotlights themselves to be multi-column within their section: */
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Example for 1-2 spotlights per row */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
         gap: calc(var(--spacing-unit) * 2);
     }
-    .spotlight-card {
-        /* Styles are mostly inherited from .member-card */
-    }
-
 
     /* --- Directory Page Specific Styles (from previous work) --- */
-    #members-display-area.cards-grid { /* Directory Grid View */
+    #members-display-area.cards-grid { 
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
         gap: calc(var(--spacing-unit) * 3);
     }
-    
-    #members-display-area.list-view .member-card { /* Directory List View */
+    #members-display-area.list-view .member-card { 
         padding: calc(var(--spacing-unit) * 1.5) var(--spacing-unit);
     }
     #members-display-area.list-view .member-card h3 { 
@@ -139,7 +155,6 @@
         flex-basis: 25%; 
     }
 
-
     /* --- Footer --- */
     .footer-content {
         display: flex;
@@ -147,7 +162,6 @@
         align-items: flex-start;
         text-align: left;
     }
-
     .footer-contact-info,
     .footer-site-info {
         margin-bottom: 0;
@@ -159,21 +173,12 @@
 }
 
 @media (min-width: 1024px) {
-    #members-display-area.cards-grid { /* Directory Grid View */
-        /* grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); */
-    }
+    
     .home-columns {
-        padding: 0; /* Remove padding if container-max-width is applied to main sections */
+        padding: 0; 
     }
-    #spotlight-cards-container {
-        /* If you have 3 spotlights, they might fit well in a single row if .home-columns is 1fr 1fr
-           and #member-spotlights is one of those columns.
-           If you want them to stack or be more flexible: */
-        /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-    }
-
+   
 }
-
 .h2-home-title {
         color: #fdfcfc; 
 }

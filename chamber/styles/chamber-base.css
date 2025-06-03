@@ -20,6 +20,9 @@
     --background-color-light: #FFFFFF;
     --background-color-page: #F4F7F6; 
     --border-color: #D1D1D1;
+    --input-border-color: #CCCCCC;
+    --input-focus-border-color: var(--primary-color);
+    --form-background: var(--background-color-light);
 
     /* Typography */
     --font-heading: 'Roboto', sans-serif;
@@ -91,7 +94,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1 { font-size: 2.25rem; }
-h2 { font-size: 1.75rem; color: var(--primary-color-dark); } /* General H2 styling */
+h2 { font-size: 1.75rem; color: var(--primary-color-dark); } 
 h3 { font-size: 1.25rem; }
 
 /* --- Header --- */
@@ -195,12 +198,250 @@ main section:last-child {
     margin-bottom: 0;
 }
 
+main > h1 { /* Page title like "Join the Chamber" */
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2) 0;
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    color: var(--primary-color-dark);
+}
+
 main section h2 { 
     text-align: center;
     margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
 
-/* --- Hero Section --- */
+/* --- Join Page Specific Styles --- */
+
+.join-content-wrapper {
+    padding: 0 calc(var(--spacing-unit) * 2) calc(var(--spacing-unit) * 2);
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+}
+
+#joinForm {
+    background-color: var(--form-background);
+    padding: calc(var(--spacing-unit) * 2.5);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-soft);
+    margin-bottom: calc(var(--spacing-unit) * 3);
+}
+
+#joinForm fieldset {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    padding: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2.5);
+}
+
+#joinForm legend {
+    font-weight: bold;
+    color: var(--primary-color-dark);
+    padding: 0 var(--spacing-unit);
+    font-size: 1.1rem;
+}
+
+#joinForm label {
+    display: block;
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    font-weight: 600;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+#joinForm input[type="text"],
+#joinForm input[type="email"],
+#joinForm input[type="tel"],
+#joinForm textarea,
+#joinForm select { /* If you were to use a select for membership */
+    width: 100%;
+    padding: calc(var(--spacing-unit) * 1.25);
+    border: 1px solid var(--input-border-color);
+    border-radius: var(--border-radius-small);
+    font-family: var(--font-body);
+    font-size: 1rem;
+    margin-top: calc(var(--spacing-unit) * 0.5);
+}
+
+#joinForm input:focus,
+#joinForm textarea:focus,
+#joinForm select:focus {
+    outline: none;
+    border-color: var(--input-focus-border-color);
+    box-shadow: 0 0 0 2px var(--primary-color-light);
+}
+
+#joinForm textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.membership-options {
+    margin-top: calc(var(--spacing-unit) * 0.5);
+}
+.membership-options .radio-label {
+    display: block;
+    font-weight: normal;
+    margin-bottom: var(--spacing-unit);
+    font-size: 1rem;
+    color: var(--text-color-dark);
+}
+.membership-options input[type="radio"] {
+    margin-right: var(--spacing-unit);
+    accent-color: var(--primary-color); /* Styles the radio button itself */
+}
+
+.submit-button {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3);
+    border-radius: var(--border-radius-small);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: 100%;
+    margin-top: var(--spacing-unit);
+}
+.submit-button:hover {
+    background-color: var(--primary-color-dark);
+}
+
+/* Membership Level Cards Info */
+.membership-levels-info {
+    text-align: center;
+}
+.membership-levels-info h2 {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+.membership-level-cards {
+    display: grid;
+    gap: calc(var(--spacing-unit) * 2);
+    /* Will be 1 column on mobile, 2 or 4 on larger in chamber-larger.css */
+}
+
+.membership-card {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    padding: calc(var(--spacing-unit) * 2);
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    /* Initial state for animation - will be overridden by JS then transition */
+    opacity: 0; 
+    transform: translateY(20px);
+}
+.membership-card h3 {
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-unit);
+}
+.membership-card p {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    min-height: 3em; /* Give some space for description */
+}
+.benefits-link {
+    background-color: var(--secondary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius-small);
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+.benefits-link:hover {
+    background-color: var(--text-color-dark);
+}
+
+/* Modals */
+.membership-modal {
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-medium);
+    padding: 0; /* Content will have padding */
+    max-width: 500px;
+    width: 90%;
+}
+.membership-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal-content {
+    padding: calc(var(--spacing-unit) * 3);
+    position: relative;
+}
+.modal-content h2 {
+    color: var(--primary-color-dark);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    font-size: 1.5rem;
+}
+.modal-content ul {
+    list-style: disc;
+    padding-left: calc(var(--spacing-unit) * 2.5);
+}
+.modal-content li {
+    margin-bottom: var(--spacing-unit);
+    font-size: 0.95rem;
+}
+.close-modal-btn {
+    position: absolute;
+    top: calc(var(--spacing-unit) * 1.5);
+    right: calc(var(--spacing-unit) * 1.5);
+    background: none;
+    border: none;
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--secondary-color);
+    cursor: pointer;
+}
+
+/* --- Thank You Page Specific Styles --- */
+.thankyou-page-main {
+    padding: calc(var(--spacing-unit) * 3) calc(var(--spacing-unit) * 2);
+    text-align: center;
+    max-width: 700px; /* Constrain width for readability */
+    margin: 0 auto; /* Center it */
+}
+.thankyou-page-main h1 {
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-unit);
+}
+.thankyou-page-main p {
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    line-height: 1.7;
+}
+.submitted-info {
+    background-color: var(--primary-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    padding: calc(var(--spacing-unit) * 2);
+    margin: calc(var(--spacing-unit) * 2.5) auto;
+    text-align: left;
+}
+.submitted-info ul {
+    padding: 0;
+    list-style: none;
+}
+.submitted-info li {
+    padding: calc(var(--spacing-unit) * 0.75) 0;
+    border-bottom: 1px dashed var(--border-color);
+    font-size: 0.95rem;
+}
+.submitted-info li:last-child {
+    border-bottom: none;
+}
+.submitted-info strong {
+    color: var(--primary-color-dark);
+}
+.thankyou-page-main .cta-button { /* Reusing CTA button style */
+    margin-top: var(--spacing-unit);
+}
+
+
+/* --- Hero Section (Home Page) --- */
 #hero {
     position: relative;
     color: var(--text-color-light);
@@ -212,7 +453,6 @@ main section h2 {
     align-items: center;
     justify-content: center;
 }
-
 #hero picture, #hero img {
     position: absolute;
     top: 0;
@@ -222,7 +462,6 @@ main section h2 {
     object-fit: cover; 
     z-index: 1;
 }
-
 .hero-overlay {
     position: relative;
     z-index: 2;
@@ -231,18 +470,15 @@ main section h2 {
     border-radius: var(--border-radius-medium);
     max-width: 90%;
 }
-
 .hero-overlay h2 {
     font-size: 2rem;
     margin-bottom: var(--spacing-unit);
     color: var(--text-color-light);
 }
-
 .hero-overlay p {
     font-size: 1.1rem;
     margin-bottom: calc(var(--spacing-unit) * 2.5);
 }
-
 .cta-button {
     background-color: var(--cta-button-bg);
     color: var(--cta-button-text);
@@ -254,31 +490,27 @@ main section h2 {
     display: inline-block;
     border: 2px solid transparent;
 }
-
 .cta-button:hover {
-    background-color: var(--cta-button-bg-hover); /* MODIFICADO */
+    background-color: var(--cta-button-bg-hover);
     color: var(--cta-button-text);
     text-decoration: none;
     transform: translateY(-2px);
 }
 
-/* --- Current Events Section --- */
+/* --- Current Events Section (Home Page) --- */
 #current-events {
     background-color: var(--background-color-light);
 }
-
 .events-container {
     display: grid;
     gap: calc(var(--spacing-unit) * 2);
 }
-
 .event-card {
     border: 1px solid var(--border-color);
     padding: calc(var(--spacing-unit) * 2);
     border-radius: var(--border-radius-medium);
     background-color: var(--primary-color-light);
 }
-
 .event-card h3 {
     color: var(--primary-color-dark);
     margin-bottom: var(--spacing-unit);
@@ -292,11 +524,7 @@ main section h2 {
 }
 
 /* --- Home Columns (Weather & Spotlights Wrapper) --- */
-.home-columns {
-    /* No specific styles needed for mobile stacking, sections control their padding */
-}
-
-/* --- Weather Section --- */
+/* --- Weather Section (Home Page) --- */
 #weather-info {
     background-color: var(--primary-color-light);
     border-radius: var(--border-radius-medium); 
@@ -310,7 +538,6 @@ main section h2 {
     margin-top: calc(var(--spacing-unit) * 2.5);
     margin-bottom: var(--spacing-unit);
 }
-
 .weather-current-display {
     display: flex;
     flex-direction: column;
@@ -323,19 +550,18 @@ main section h2 {
     width: 70px;
     height: 70px;
 }
-.weather-current-display p:first-of-type { /* Temperature */
+.weather-current-display p:first-of-type { 
     font-size: 2.5rem;
     font-weight: bold;
     color: var(--primary-color);
     margin: 0;
 }
-.weather-current-display p:last-of-type { /* Description */
+.weather-current-display p:last-of-type { 
     font-size: 1rem;
     font-style: italic;
     color: var(--secondary-color);
     margin: 0;
 }
-
 .forecast-container {
     display: flex;
     flex-direction: column; 
@@ -357,7 +583,7 @@ main section h2 {
     font-size: 1.1rem;
 }
 
-/* --- Member Spotlights Section --- */
+/* --- Member Spotlights Section (Home Page) --- */
 #member-spotlights {
     background-color: var(--background-color-light);
 }
@@ -365,7 +591,6 @@ main section h2 {
     display: grid;
     gap: calc(var(--spacing-unit) * 2);
 }
-
 .spotlight-card {
     background-color: var(--background-color-light);
     border: 1px solid var(--border-color);
@@ -403,15 +628,16 @@ main section h2 {
     margin-top: var(--spacing-unit);
 }
 
-
 /* --- Directory Page Specific Styles --- */
+.h2-directory-title {
+        color: #fdfcfc; 
+}
 .view-controls {
     display: flex;
     justify-content: center;
     gap: var(--spacing-unit);
     margin-bottom: calc(var(--spacing-unit) * 3);
 }
-
 .view-btn {
     background-color: var(--background-color-light);
     color: var(--primary-color);
@@ -431,18 +657,15 @@ main section h2 {
     height: 20px;
     fill: currentColor; 
 }
-
 .view-btn:hover {
     background-color: var(--primary-color-light);
     color: var(--primary-color-dark);
 }
-
 .view-btn.active-view {
     background-color: var(--primary-color);
     color: var(--text-color-light);
     border-color: var(--primary-color-dark);
 }
-
 #members-display-area.cards-grid { 
     display: grid;
     gap: calc(var(--spacing-unit) * 2);
@@ -481,7 +704,6 @@ main section h2 {
     font-size: 0.9rem;
     font-weight: bold;
 }
-
 #members-display-area.list-view { 
     display: block; 
 }
@@ -563,12 +785,10 @@ footer {
     text-align: center;
     font-size: 0.875rem;
 }
-
 .footer-content {
     max-width: var(--container-max-width);
     margin: 0 auto;
 }
-
 .footer-contact-info,
 .footer-site-info {
     margin-bottom: calc(var(--spacing-unit) * 2);
@@ -576,23 +796,16 @@ footer {
 .footer-site-info p:last-child {
     margin-bottom: 0;
 }
-
 .footer-contact-info h3 {
     font-size: 1.1rem;
     color: var(--text-color-light);
     margin-bottom: var(--spacing-unit);
 }
-
 .footer-contact-info p,
 .footer-site-info p {
     margin-bottom: calc(var(--spacing-unit) * 0.5);
 }
-
 #chamber-current-year,
 #chamber-last-modified {
     font-weight: bold;
-}
-
-.h2-home-title {
-        color: #fdfcfc; 
 }

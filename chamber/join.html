@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Join Our Chamber - Antigua Guatemala Chamber of Commerce</title>
+    <meta name="description" content="Become a member of the Antigua Guatemala Chamber of Commerce. Fill out our application form to access benefits and networking opportunities.">
+    <meta name="author" content="Janio B. Ruiz">
+
+    <link rel="icon" href="images/favicon-jbr.svg" type="image/svg+xml">
+
+    <meta property="og:title" content="Join the Antigua Guatemala Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://jbenjaruiz.github.io/wdd231/chamber/images/antigua-chamber-og-join.png"> <meta property="og:url" content="https://jbenjaruiz.github.io/wdd231/chamber/join.html">
+    <meta property="og:description" content="Grow your business and connect with the community. Apply for membership at the Antigua Guatemala Chamber of Commerce today!">
+
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-base.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <script src="scripts/chamber-main.js" defer></script>
+    <script src="scripts/join.js" defer></script> </head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="images/favicon-jbr.svg" alt="Antigua Guatemala Chamber of Commerce Logo" id="chamber-logo">
+                <div class="site-title">
+                    <h1>Antigua Guatemala</h1>
+                    <p class="chamber-subtitle">Chamber of Commerce</p>
+                </div>
+            </div>
+            <button id="chamber-menu-button" aria-label="Toggle navigation menu">☰</button>
+        </div>
+    </header>
+
+    <nav id="chamber-nav">
+        <ul id="chamber-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html" class="active">Join</a></li> <li><a href="discover.html">Discover</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="join-page-main">
+        <h1>Join the Chamber</h1>
+        <div class="join-content-wrapper">
+            <form id="joinForm" method="get" action="thankyou.html">
+                <fieldset>
+                    <legend>Applicant Information</legend>
+                    <label for="fname">First Name*
+                        <input type="text" id="fname" name="fname" title="Applicant's First Name" required autocomplete="given-name">
+                    </label>
+                    <label for="lname">Last Name*
+                        <input type="text" id="lname" name="lname" title="Applicant's Last Name" required autocomplete="family-name">
+                    </label>
+                    <label for="orgtitle">Organizational Title
+                        <input type="text" id="orgtitle" name="orgtitle" title="Applicant's Organizational Title" pattern="[a-zA-Z\s-]{7,}" autocomplete="organization-title">
+                    </label>
+                    <label for="email">Email Address*
+                        <input type="email" id="email" name="email" title="Applicant's Email Address" required autocomplete="email" placeholder="example@domain.com">
+                    </label>
+                    <label for="phone">Mobile Phone Number*
+                        <input type="tel" id="phone" name="phone" title="Applicant's Mobile Phone Number" required autocomplete="tel">
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Business / Organization Information</legend>
+                    <label for="orgname">Business/Organization Name*
+                        <input type="text" id="orgname" name="orgname" title="Business or Organization's Name" required autocomplete="organization">
+                    </label>
+                    
+                    <label for="membershiplevel">Membership Level*</label>
+                    <div class="membership-options">
+                        <label class="radio-label"><input type="radio" name="membershiplevel" value="np" required title="NP Membership (Non-Profit)"> NP Membership (No Fee)</label>
+                        <label class="radio-label"><input type="radio" name="membershiplevel" value="bronze" title="Bronze Membership"> Bronze Membership</label>
+                        <label class="radio-label"><input type="radio" name="membershiplevel" value="silver" title="Silver Membership"> Silver Membership</label>
+                        <label class="radio-label"><input type="radio" name="membershiplevel" value="gold" title="Gold Membership"> Gold Membership</label>
+                    </div>
+                    
+                    <label for="orgdesc">Business/Organization Description
+                        <textarea id="orgdesc" name="orgdesc" title="Business or Organization's Description" rows="5"></textarea>
+                    </label>
+                </fieldset>
+
+                <input type="hidden" id="timestamp" name="timestamp" value="">
+
+                <input type="submit" value="Join the Chamber" class="submit-button">
+            </form>
+
+            <aside class="membership-levels-info">
+                <h2>Membership Levels & Benefits</h2>
+                <div class="membership-level-cards">
+                    <div class="membership-card" id="np-card">
+                        <h3>NP Membership</h3>
+                        <p>(Non-Profit Organizations)</p>
+                        <button type="button" class="benefits-link" data-modal-target="np-modal">View Benefits</button>
+                    </div>
+                    <div class="membership-card" id="bronze-card">
+                        <h3>Bronze Membership</h3>
+                        <p>Ideal for small businesses starting out.</p>
+                        <button type="button" class="benefits-link" data-modal-target="bronze-modal">View Benefits</button>
+                    </div>
+                    <div class="membership-card" id="silver-card">
+                        <h3>Silver Membership</h3>
+                        <p>Great value with expanded benefits.</p>
+                        <button type="button" class="benefits-link" data-modal-target="silver-modal">View Benefits</button>
+                    </div>
+                    <div class="membership-card" id="gold-card">
+                        <h3>Gold Membership</h3>
+                        <p>Maximum exposure and premier benefits.</p>
+                        <button type="button" class="benefits-link" data-modal-target="gold-modal">View Benefits</button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <dialog id="np-modal" class="membership-modal">
+            <div class="modal-content">
+                <button class="close-modal-btn" aria-label="Close Non-Profit Membership Benefits modal" data-modal-close>&times;</button>
+                <h2>NP Membership Benefits (No Fee)</h2>
+                <ul>
+                    <li>Basic listing in the online Member Directory.</li>
+                    <li>Access to select Chamber newsletters.</li>
+                    <li>Invitation to one free networking event per year.</li>
+                </ul>
+            </div>
+        </dialog>
+
+        <dialog id="bronze-modal" class="membership-modal">
+            <div class="modal-content">
+                <button class="close-modal-btn" aria-label="Close Bronze Membership Benefits modal" data-modal-close>&times;</button>
+                <h2>Bronze Membership Benefits</h2>
+                <ul>
+                    <li>Enhanced listing in the online Member Directory.</li>
+                    <li>Subscription to all Chamber newsletters and publications.</li>
+                    <li>Discounted rates for Chamber events and workshops.</li>
+                    <li>Access to member-only online resources.</li>
+                </ul>
+            </div>
+        </dialog>
+
+        <dialog id="silver-modal" class="membership-modal">
+            <div class="modal-content">
+                <button class="close-modal-btn" aria-label="Close Silver Membership Benefits modal" data-modal-close>&times;</button>
+                <h2>Silver Membership Benefits</h2>
+                <ul>
+                    <li>All Bronze benefits, plus:</li>
+                    <li>Eligibility for Member Spotlight on the Chamber homepage.</li>
+                    <li>Opportunity to host one "Business After Hours" networking event.</li>
+                    <li>Company name listed in annual Chamber report.</li>
+                    <li>Two complimentary tickets to the Annual Chamber Gala.</li>
+                </ul>
+            </div>
+        </dialog>
+
+        <dialog id="gold-modal" class="membership-modal">
+            <div class="modal-content">
+                <button class="close-modal-btn" aria-label="Close Gold Membership Benefits modal" data-modal-close>&times;</button>
+                <h2>Gold Membership Benefits</h2>
+                <ul>
+                    <li>All Silver benefits, plus:</li>
+                    <li>Premium placement in the online Member Directory.</li>
+                    <li>Logo featured on Chamber website homepage footer.</li>
+                    <li>Opportunity to sponsor a major Chamber event with recognition.</li>
+                    <li>Exclusive invitations to VIP receptions with community leaders.</li>
+                    <li>One dedicated e-blast to Chamber membership per year.</li>
+                </ul>
+            </div>
+        </dialog>
+
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h3>Contact Us</h3>
+                <p>Antigua Guatemala Chamber of Commerce</p>
+                <p>123 Calle del Arco, Antigua Guatemala</p>
+                <p>Phone: (502) 5555-1234</p>
+                <p>Email: info@antiguachamber.org</p>
+            </div>
+            <div class="footer-site-info">
+                <p>&copy;<span id="chamber-current-year"></span> Janio B. Ruiz</p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modification: <span id="chamber-last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
