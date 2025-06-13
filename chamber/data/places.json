@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Arco de Santa Catalina",
+    "address": "5a Avenida Norte, Antigua Guatemala",
+    "description": "The most iconic landmark of Antigua, this 17th-century arch originally connected a convent to a school, allowing nuns to pass without going out into the street. It is a must-see photo spot with Volcán de Agua in the background.",
+    "image": "arco-santa-catalina.webp"
+  },
+  {
+    "name": "Iglesia de La Merced",
+    "address": "6a Avenida Norte y 1a Calle Poniente, Antigua Guatemala",
+    "description": "A stunning example of Guatemalan ultra-baroque architecture, this church features intricate stucco work on its facade. The monastery ruins and the large fountain are also highlights.",
+    "image": "iglesia-la-merced.webp"
+  },
+  {
+    "name": "Cerro de la Cruz",
+    "address": "Hilltop on the north side of the city",
+    "description": "A viewpoint offering panoramic vistas of Antigua and the surrounding volcanoes. The walk up is part of the experience, providing a rewarding view from the cross at the top.",
+    "image": "cerro-de-la-cruz.webp"
+  },
+  {
+    "name": "Parque Central (Main Square)",
+    "address": "Between 4a and 5a Avenidas & 4a and 5a Calles",
+    "description": "The heart of the city, this bustling park is surrounded by the Cathedral, government buildings, and numerous shops and restaurants. The central fountain is a popular meeting spot.",
+    "image": "parque-central.webp"
+  },
+  {
+    "name": "Convento de las Capuchinas",
+    "address": "2a Avenida Norte y 2a Calle Oriente, Antigua Guatemala",
+    "description": "One of the best-preserved convents in Antigua, it is known for its unique circular tower of cells and beautiful cloisters. It offers a fascinating glimpse into colonial religious life.",
+    "image": "convento-capuchinas.webp"
+  },
+  {
+    "name": "Casa Santo Domingo",
+    "address": "3a Calle Oriente #28 A, Antigua Guatemala",
+    "description": "A former convent that now serves as a luxury hotel and cultural center. It houses several museums, including colonial art, archaeology, and a pharmacy museum, all set within beautifully restored ruins.",
+    "image": "casa-santo-domingo.webp"
+  },
+  {
+    "name": "Mercado de Artesanías (Artisan Market)",
+    "address": "Poniente Final, near the main bus terminal",
+    "description": "A vibrant market where you can find a wide variety of handmade Guatemalan textiles, pottery, woodwork, and jewelry. It's the perfect place to shop for authentic souvenirs.",
+    "image": "mercado-artesanias.webp"
+  },
+  {
+    "name": "Tanque La Unión",
+    "address": "6a Calle Oriente y 2a Avenida Sur, Antigua Guatemala",
+    "description": "A historic public laundry area (lavadero) with a beautiful fountain, where locals have washed clothes for generations. It is a charming spot that reflects the city's living history.",
+    "image": "tanque-la-union.webp"
+  }
+]

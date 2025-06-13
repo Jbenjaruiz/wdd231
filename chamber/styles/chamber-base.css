@@ -828,3 +828,100 @@ footer {
 #chamber-last-modified {
     font-weight: bold;
 }
+
+/* --- Discover Page Specific Styles --- */
+.discover-page-main {
+    /* On mobile, sidebar and gallery stack vertically */
+}
+
+.discover-sidebar {
+    background-color: var(--primary-color-light);
+    padding: calc(var(--spacing-unit) * 2);
+    border-bottom: 3px solid var(--primary-color);
+}
+
+.sidebar-box {
+    background-color: var(--background-color-light);
+    padding: calc(var(--spacing-unit) * 2);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    border-radius: var(--border-radius-medium);
+    border: 1px solid var(--border-color);
+}
+.sidebar-box:last-child {
+    margin-bottom: 0;
+}
+
+.sidebar-box h3 {
+    color: var(--primary-color-dark);
+    margin-bottom: var(--spacing-unit);
+    padding-bottom: calc(var(--spacing-unit) * 0.5);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.visit-message p,
+.demographics ul li,
+.calendar-preview p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: calc(var(--spacing-unit) * 0.75);
+}
+
+.discover-gallery {
+    padding: calc(var(--spacing-unit) * 2);
+}
+
+#places-grid-container {
+    display: grid;
+    gap: calc(var(--spacing-unit) * 2.5);
+    /* grid-template-areas will be defined in media queries */
+}
+
+.place-card {
+    background-color: var(--background-color-light);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-medium);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Ensures border-radius is respected by children */
+}
+
+.place-card h2 {
+    font-size: 1.25rem;
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 2);
+    margin: 0;
+}
+
+.place-card figure {
+    margin: 0;
+    line-height: 0; /* Removes any gap below the image */
+}
+
+.place-card address,
+.place-card p {
+    padding: 0 calc(var(--spacing-unit) * 2);
+    margin: var(--spacing-unit) 0;
+    font-size: 0.9rem;
+}
+.place-card address {
+    font-style: italic;
+    color: var(--secondary-color);
+}
+.place-card p {
+    flex-grow: 1; /* Allows description to take up available space */
+}
+
+.place-card button {
+    background-color: var(--primary-color);
+    color: var(--text-color-light);
+    border: none;
+    padding: calc(var(--spacing-unit) * 1.25);
+    cursor: pointer;
+    margin-top: var(--spacing-unit);
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.place-card button:hover {
+    background-color: var(--primary-color-dark);
+}
+

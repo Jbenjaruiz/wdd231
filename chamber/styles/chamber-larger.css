@@ -182,3 +182,53 @@
 .h2-home-title {
         color: #fdfcfc; 
 }
+
+/* --- Discover Page Layout --- */
+@media (min-width: 641px) { /* Medium Screens */
+    .discover-page-main {
+        display: grid;
+        grid-template-columns: 1fr 2fr; /* Sidebar takes 1/3, gallery takes 2/3 */
+        grid-template-areas: "sidebar gallery";
+        gap: calc(var(--spacing-unit) * 3);
+        max-width: var(--container-max-width);
+        margin: 0 auto;
+        padding: calc(var(--spacing-unit) * 3);
+    }
+
+    .discover-sidebar {
+        grid-area: sidebar;
+        border-bottom: none; /* Remove border from mobile */
+        border-right: 3px solid var(--primary-color);
+    }
+
+    .discover-gallery {
+        grid-area: gallery;
+        padding: 0; /* Remove padding as main grid gap handles spacing */
+    }
+
+    #places-grid-container {
+        grid-template-columns: 1fr 1fr; /* 2 columns for medium screens */
+    }
+
+    /* Image Hover Effect for Medium and Larger Screens */
+    .place-card figure {
+        position: relative;
+        overflow: hidden;
+    }
+    .place-card figure img {
+        transition: transform 0.4s ease-out, filter 0.4s ease-out;
+    }
+    .place-card:hover figure img {
+        transform: scale(1.1);
+        filter: brightness(85%) sepia(20%);
+    }
+}
+
+@media (min-width: 1025px) { /* Large Screens */
+    .discover-page-main {
+        grid-template-columns: 1fr 3fr; /* Sidebar takes 1/4, gallery 3/4 */
+    }
+    #places-grid-container {
+        grid-template-columns: 1fr 1fr 1fr; /* 3 columns for large screens */
+    }
+}

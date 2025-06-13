@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Basic Page Needs for Discover Page -->
+    <title>Discover Antigua Guatemala - Chamber of Commerce</title>
+    <meta name="description" content="Discover the attractions, history, and demographics of Antigua Guatemala. A resource from the local Chamber of Commerce.">
+    <meta name="author" content="Janio B. Ruiz">
+
+    <!-- Favicon -->
+    <link rel="icon" href="images/favicon-jbr.svg" type="image/svg+xml">
+
+    <!-- Facebook Open Graph Meta Tags -->
+    <meta property="og:title" content="Discover Antigua Guatemala with the Chamber of Commerce">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://jbenjaruiz.github.io/wdd231/chamber/images/antigua-chamber-og-discover.png"> <!-- You'll need to create this image -->
+    <meta property="og:url" content="https://jbenjaruiz.github.io/wdd231/chamber/discover.html">
+    <meta property="og:description" content="Explore historic sites, cultural attractions, and learn about our vibrant community in Antigua Guatemala.">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/chamber-base.css">
+    <link rel="stylesheet" href="styles/chamber-larger.css">
+
+    <!-- Google Fonts (Consistent with other pages) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- JavaScript -->
+    <script src="scripts/chamber-main.js" defer></script>
+    <script src="scripts/discover.js" defer></script> <!-- JS for discover page specifics -->
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo-area">
+                <img src="images/antigua-logo.webp" alt="Antigua Guatemala Chamber of Commerce Logo" id="chamber-logo">
+                <div class="site-title">
+                    <h1>Antigua Guatemala</h1>
+                    <p class="chamber-subtitle">Chamber of Commerce</p>
+                </div>
+            </div>
+            <button id="chamber-menu-button" aria-label="Toggle navigation menu">☰</button>
+        </div>
+    </header>
+
+    <nav id="chamber-nav">
+        <ul id="chamber-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="directory.html">Directory</a></li>
+            <li><a href="join.html">Join</a></li>
+            <li><a href="discover.html" class="active">Discover</a></li> <!-- Active link updated -->
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="discover-page-main">
+        <aside class="discover-sidebar">
+            <div class="sidebar-box visit-message">
+                <h3>Last Visit</h3>
+                <p id="last-visit-message">Loading visit data...</p>
+            </div>
+            <div class="sidebar-box demographics">
+                <h3>Demographics</h3>
+                <ul>
+                    <li><strong>Population:</strong> Approx. 46,000</li>
+                    <li><strong>Elevation:</strong> 1,533 m (5,030 ft)</li>
+                    <li><strong>Founded:</strong> 1543</li>
+                    <li><strong>Known for:</strong> Baroque architecture, cobblestone streets, surrounding volcanoes.</li>
+                </ul>
+            </div>
+             <div class="sidebar-box calendar-preview">
+                <h3>Upcoming Events</h3>
+                <p><strong>Coffee Harvest Festival:</strong> Feb 15-17</p>
+                 <p><strong>Semana Santa (Holy Week):</strong> March/April</p>
+                <p><strong>Cultural Fair:</strong> July 25</p>
+            </div>
+        </aside>
+
+        <section class="discover-gallery">
+            <h2>Points of Interest</h2>
+            <div id="places-grid-container">
+                <!-- Place cards will be dynamically inserted here by JavaScript -->
+                <p class="loading-message">Loading attractions...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-contact-info">
+                <h3>Contact Us</h3>
+                <p>Antigua Guatemala Chamber of Commerce</p>
+                <p>123 Calle del Arco, Antigua Guatemala</p>
+                <p>Phone: (502) 5555-1234</p>
+                <p>Email: info@antiguachamber.org</p>
+            </div>
+            <div class="footer-site-info">
+                <p>&copy;<span id="chamber-current-year"></span> Janio B. Ruiz</p>
+                <p>WDD 231 - Chamber Project</p>
+                <p>Last Modification: <span id="chamber-last-modified"></span></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
