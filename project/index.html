@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alma Motera - Home</title>
+    <meta name="description"
+        content="Un espacio para celebrar la pasión por las motocicletas. Encuentra tu estilo, inspiración y recursos.">
+    <meta name="author" content="Benjamin Ruiz">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="project/styles/base.css">
+</head>
+
+<body>
+
+    <div id="header-placeholder"></div>
+
+    <main>
+        <section class="carousel-container">
+            <div class="carousel-slide">
+                <div class="hero-content">
+                    <h1></h1>
+                    <p></p>
+                    <a href="#" class="cta-button"></a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="hero-content">
+                    <h1></h1>
+                    <p></p>
+                    <a href="#" class="cta-button"></a>
+                </div>
+            </div>
+            <div class="carousel-slide">
+                <div class="hero-content">
+                    <h1></h1>
+                    <p></p>
+                    <a href="#" class="cta-button"></a>
+                </div>
+            </div>
+
+            <button class="carousel-btn prev-btn">&#10094;</button>
+            <button class="carousel-btn next-btn">&#10095;</button>
+
+            <div class="carousel-dots">
+                <span class="dot" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+            </div>
+        </section>
+
+        <section class="passion-section">
+            <div class="container passion-container">
+                <div class="passion-content">
+                    <h2>Passion on Two Wheels</h2>
+                    <p>Discover the world of motorcycles, from classic to modern, and connect with the community that
+                        shares your passion.</p>
+                    <div class="passion-buttons">
+                        <a href="galeria.html" class="button button-primary">Explore Gallery</a>
+                        <a href="explora.html" class="button button-secondary">Motorcycle Types</a>
+                    </div>
+                </div>
+
+                <div class="passion-graphic">
+                    <svg class="wavy-line" width="250" height="100" viewBox="0 0 250 100"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 10 50 Q 70 -20 125 50 T 240 50" stroke="#C05000" stroke-width="6" fill="none"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
+        </section>
+
+        <section class="features container">
+            <div class="feature-card">
+                <h3>Explore Motorcycle Types</h3>
+                <p>Cruiser, Sport, Adventure? Learn the features of each one and find your perfect style.</p>
+                <a href="explora.html">See more</a>
+            </div>
+            <div class="feature-card">
+                <h3>Inspiration Gallery</h3>
+                <p>A collection of dynamic images to help you appreciate the engineering and art of motorcycling.</p>
+                <a href="galeria.html">View gallery</a>
+            </div>
+            <div class="feature-card">
+                <h3>Community and Resources</h3>
+                <p>Connect with others and find the best blogs, forums, and channels about the world of motorcycles.</p>
+                <a href="galeria.html#recursos">View resources</a>
+            </div>
+        </section>
+
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <h2>JOIN OUR COMMUNITY</h2>
+                <p>Receive the latest news, articles and events directly in your inbox.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Your email" required />
+                    <button type="submit">Subscribe</button>
+                </form>
+                <small>We respect your privacy. We will never share your information.</small>
+            </div>
+        </section>
+
+    </main>
+    <dialog id="subscription-modal">
+        <div class="modal-content">
+            <h2>Thank You for Subscribing!</h2>
+            <p>Welcome to the Alma Motera community. You're now on the list to receive the latest news, articles, and event updates directly in your inbox. Ride on!</p>
+            <button id="close-modal-btn">Close</button>
+        </div>
+    </dialog>
+
+    <div id="footer-placeholder"></div>
+    <script src="project/scripts/main.js"></script>
+    <script src="project/scripts/components.js"></script>
+</body>
+
+</html>

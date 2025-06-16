@@ -1,0 +1,711 @@
+/* --- VARIABLES Y ESTILOS GLOBALES --- */
+:root {
+    --background-color: #212121;
+    --text-color: #F4F4F4;
+    --accent-color: #FF6600;
+    --accent-color-dark: #C05000;
+    /* <-- Nueva variable */
+    --card-background: #2a2a2a;
+    --heading-font: 'Oswald', sans-serif;
+    --body-font: 'Roboto', sans-serif;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--body-font);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--heading-font);
+    font-weight: 700;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+}
+
+h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--text-color);
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* --- HEADER Y NAVEGACIÓN --- */
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-family: var(--heading-font);
+    font-size: 1.8rem;
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 0.5rem 0;
+    text-transform: uppercase;
+}
+
+nav a.active {
+    color: var(--accent-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+/* --- SECCIÓN CAROUSEL --- */
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    height: 50vh;
+    /* <-- CAMBIA ESTA LÍNEA */
+    overflow: hidden;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    /* Para centrar el contenido */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 2rem;
+
+    /* Efecto de transición (fade) */
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* Define la visibilidad del slide activo */
+.carousel-slide.active {
+    opacity: 1;
+    z-index: 10;
+    /* Se asegura que el slide activo esté por encima de los otros */
+}
+
+/* === ¡IMPORTANTE! Define aquí las imágenes de fondo para cada slide === */
+#slide1 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/moto-hero-1.jpg');
+}
+
+#slide2 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/moto-hero-2.jpg');
+}
+
+#slide3 {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('../images/moto-hero-3.jpg');
+}
+
+
+/* Ajustes para el contenido del carrusel (más pequeño) */
+.hero-content h1 {
+    font-size: 2.8rem;
+    /* Un poco más pequeño */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    /* Un poco más pequeño */
+    margin-bottom: 1.5rem;
+}
+
+.cta-button {
+    padding: 0.8rem 1.8rem;
+    /* Botón ligeramente más pequeño */
+    font-size: 0.9rem;
+}
+
+/* En móvil, los títulos serán aún más pequeños */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Botones Prev/Next */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 20;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-btn:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* Puntos de Navegación */
+.carousel-dots {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    gap: 10px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.dot.active {
+    background-color: white;
+}
+
+.cta-button {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.cta-button:hover {
+    filter: brightness(1.1);
+}
+
+
+/* --- OTRAS SECCIONES --- */
+/* --- SECCIÓN PASIÓN (Reemplazo de 'intro') --- */
+
+.passion-section {
+    padding: 8rem 0;
+    /* Más espacio vertical para que respire */
+    background-color: var(--background-color);
+}
+
+.passion-container {
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente las columnas */
+    gap: 2rem;
+    /* Espacio entre las columnas */
+}
+
+/* Columna Izquierda: Contenido */
+.passion-content {
+    flex: 1;
+    /* Ocupa el espacio disponible */
+    padding-right: 2rem;
+}
+
+.passion-content h2 {
+    text-align: left;
+    /* Alineamos el H2 a la izquierda */
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+}
+
+.passion-content p {
+    font-size: 1.1rem;
+    max-width: 500px;
+    /* Evita que las líneas de texto sean muy largas */
+    margin-bottom: 2.5rem;
+}
+
+.passion-buttons {
+    display: flex;
+    gap: 1rem;
+    /* Espacio entre los botones */
+}
+
+/* Estilos base para los botones */
+.button {
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    font-family: var(--body-font);
+}
+
+/* Botón Primario (Naranja) */
+.button-primary {
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+.button-primary:hover {
+    filter: brightness(1.15);
+    text-decoration: none;
+}
+
+/* Botón Secundario (Borde) */
+.button-secondary {
+    background-color: transparent;
+    color: var(--text-color);
+    border-color: var(--text-color);
+}
+
+.button-secondary:hover {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    text-decoration: none;
+}
+
+
+/* Columna Derecha: Gráfico */
+.passion-graphic {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wavy-line {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+}
+
+.features {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.feature-card {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 8px;
+    text-align: center;
+    flex-basis: 30%;
+    /* Cada tarjeta ocupa aprox. un 30% del espacio */
+    border: 1px solid #444;
+}
+
+.feature-card p {
+    margin: 1rem 0 2rem;
+}
+
+.feature-card a {
+    font-weight: bold;
+}
+
+
+/* --- FOOTER --- */
+footer {
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 4rem;
+    border-top: 1px solid #444;
+}
+
+.newsletter-section {
+    background-color: #1c1c1c;
+    color: #ffffff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.newsletter-container {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.newsletter-container h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.newsletter-container p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+}
+
+.newsletter-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+}
+
+.newsletter-form input[type="email"] {
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    flex: 1 1 250px;
+    max-width: 400px;
+}
+
+.newsletter-form button {
+    padding: 12px 20px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    color: #1c1c1c;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.newsletter-container small {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: #cccccc;
+}
+
+
+/* =============================================== */
+/* --- ESTILOS RESPONSIVOS PARA MÓVILES --- */
+/* =============================================== */
+
+@media (max-width: 768px) {
+
+    /* --- AJUSTES GENERALES Y TIPOGRAFÍA --- */
+
+    .container {
+        width: 95%;
+        /* Un poco más de espacio en los bordes */
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    /* Reduce el tamaño del título principal */
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Reduce el tamaño de los títulos de sección */
+    h3 {
+        font-size: 1.3rem;
+    }
+
+    /* --- HEADER Y NAVEGACIÓN --- */
+
+    header .container {
+        flex-direction: column;
+        /* Apila el logo y la navegación */
+        gap: 0.5rem;
+    }
+
+    /* NOTA IMPORTANTE SOBRE EL MENÚ:
+       En móvil, el menú de escritorio no cabe. La mejor práctica es un "menú de hamburguesa"
+       que se abre con JavaScript. Por ahora, para mantenerlo simple y visualmente limpio,
+       simplemente haremos que los enlaces quepan, pero el siguiente paso sería implementar ese menú.
+    */
+    nav ul {
+        gap: 1.5rem;
+        /* Reduce el espacio entre enlaces */
+        padding-bottom: 0.5rem;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        /* Reduce el tamaño de la fuente del menú */
+    }
+
+
+    /* --- SECCIÓN CAROUSEL --- */
+
+    .carousel-btn {
+        /* Oculta los botones de flecha en pantallas pequeñas para no estorbar */
+        display: none;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+        padding: 0 1rem;
+        /* Evita que el texto toque los bordes */
+    }
+
+
+    /* --- SECCIÓN PASIÓN --- */
+
+    .passion-section {
+        padding: 4rem 0;
+        /* Menos espacio vertical */
+    }
+
+    .passion-container {
+        flex-direction: column;
+        /* Apila las dos columnas */
+        text-align: center;
+        /* Centra el texto para la vista móvil */
+    }
+
+    .passion-content {
+        padding-right: 0;
+        /* Quita el padding que solo servía en desktop */
+        order: 2;
+        /* Cambia el orden: primero el gráfico, luego el texto */
+    }
+
+    .passion-content h2 {
+        text-align: center;
+        /* Asegura que el H2 se centre */
+    }
+
+    .passion-buttons {
+        justify-content: center;
+        /* Centra los botones */
+        flex-direction: column;
+        /* Apila los botones si no caben */
+        align-items: center;
+    }
+
+    .button {
+        width: 80%;
+        /* Hace que los botones ocupen un ancho considerable */
+        text-align: center;
+    }
+
+    .passion-graphic {
+        order: 1;
+        /* El gráfico aparecerá primero */
+        margin-bottom: 2rem;
+        /* Espacio entre el gráfico y el texto */
+    }
+
+
+    /* --- SECCIÓN DE TARJETAS (FEATURES) --- */
+
+    .features {
+        flex-direction: column;
+        /* Apila las tarjetas verticalmente */
+        padding: 4rem 0;
+    }
+
+
+    /* --- SECCIÓN NEWSLETTER --- */
+
+    .newsletter-form {
+        /* El formulario ya es bastante responsivo gracias a flex-wrap, 
+         pero podemos asegurar que el botón se vea bien */
+    }
+
+    .newsletter-form button {
+        width: 100%;
+        max-width: 250px;
+        /* Le damos un ancho máximo al botón en móvil */
+    }
+}
+
+/* --- ESTILOS PARA EL MENÚ DE HAMBURGUESA --- */
+
+/* El ícono de hamburguesa (inicialmente oculto en desktop) */
+.mobile-menu-icon {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 10;
+}
+
+.mobile-menu-icon span {
+    width: 100%;
+    height: 3px;
+    background-color: var(--text-color);
+    border-radius: 2px;
+    transition: all 0.3s linear;
+}
+
+/* Animación del ícono a una 'X' cuando está activo */
+.mobile-menu-icon.active span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+.mobile-menu-icon.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-icon.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+
+/* --- Media Query para adaptar la navegación a móvil --- */
+
+@media (max-width: 768px) {
+
+    /* Muestra el ícono de hamburguesa */
+    .mobile-menu-icon {
+        display: flex;
+    }
+
+    /* Oculta la lista de navegación de escritorio */
+    .nav-list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        /* Justo debajo del header */
+        left: 0;
+        width: 100%;
+        background-color: var(--background-color);
+        /* Fondo oscuro */
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem 0;
+    }
+
+    /* Muestra la lista cuando el menú está activo */
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+}
+
+/* --- ESTILOS PARA EL MODAL DIALOG --- */
+
+#subscription-modal {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    padding: 2.5rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para el fondo oscuro cuando el modal está abierto */
+#subscription-modal::backdrop {
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(3px);
+}
+
+.modal-content {
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+
+.modal-content p {
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+#close-modal-btn {
+    /* Reutilizamos los estilos de los botones que ya tenemos */
+    display: inline-block;
+    padding: 0.8rem 2rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid transparent;
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--background-color);
+}
+
+#close-modal-btn:hover {
+    filter: brightness(1.15);
+}
