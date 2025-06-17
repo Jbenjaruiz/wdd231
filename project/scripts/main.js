@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // --- 2. FUNCIÓN PARA OBTENER LOS DATOS DEL JSON ---
     async function fetchSlideData() {
         try {
-            const response = await fetch('project/data/slides.json'); // Busca el archivo
+            const response = await fetch('data/slides.json'); // Busca el archivo
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }

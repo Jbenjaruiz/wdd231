@@ -1,20 +1,20 @@
 [
   {
-    "image": "images/moto-hero-1.jpg",
+    "image": "images/moto-hero-1.jpeg",
     "title": "Feel the Freedom of the Asphalt",
     "subtitle": "Your journey starts here. Discover, learn, and connect with the world of two wheels.",
     "buttonText": "Discover Your Ideal Bike",
     "buttonLink": "explora.html"
   },
   {
-    "image": "images/moto-hero-2.jpg",
+    "image": "images/moto-hero-2.jpeg",
     "title": "Design That Inspires",
     "subtitle": "Explore a gallery of machines that combine engineering and art.",
     "buttonText": "View Gallery",
     "buttonLink": "galeria.html"
   },
   {
-    "image": "images/moto-hero-3.jpg",
+    "image": "images/moto-hero-3.jpeg",
     "title": "Find Your Style",
     "subtitle": "From Cruisers to Sport Bikes, there's a motorcycle for every personality.",
     "buttonText": "Explore Types",
