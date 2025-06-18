@@ -330,14 +330,12 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 /* 7. ESTILOS RESPONSIVOS (MÓVIL)                                      */
 /* =================================================================== */
 @media (max-width: 768px) {
-    /* TIPOGRAFÍA */
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
     h3 { font-size: 1.3rem; }
     .hero-content h1 { font-size: 2rem; }
     .hero-content p { font-size: 1rem; }
 
-    /* NAVEGACIÓN (MENÚ DE HAMBURGUESA) */
     .mobile-menu-icon {
         display: flex; flex-direction: column; justify-content: space-around;
         width: 30px; height: 25px; background: transparent;
@@ -357,7 +355,7 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
     nav .nav-list.active { display: flex; }
     nav .nav-list li { width: 100%; text-align: center; padding: 1rem 0; }
     
-    /* SECCIONES */
+
     .carousel-btn { display: none; }
 
     .passion-section { padding: 4rem 0; }
@@ -371,18 +369,18 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 
     .newsletter-form button { width: 100%; max-width: 250px; }
 
-    .main-gallery { padding-top: 120px; } /* Más espacio para el header apilado */
+    .main-gallery { padding-top: 120px; } 
     #search-form { flex-direction: column; align-items: center; }
-    #gallery-grid { grid-template-columns: repeat(1, 1fr); } /* 1 columna en móvil */
+    #gallery-grid { grid-template-columns: repeat(1, 1fr); } 
 
-    /* Dentro de la @media query, al final */
+
     .main-categories { padding-top: 120px; }
     #filters-list {
-        justify-content: flex-start; /* Alinea los items al inicio */
-        flex-wrap: nowrap; /* Evita que se envuelvan en varias líneas */
-        overflow-x: auto; /* Permite el scroll horizontal */
-        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
-        scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+        justify-content: flex-start; 
+        flex-wrap: nowrap; 
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; 
+        scrollbar-width: none; 
     }
-    #filters-list::-webkit-scrollbar { display: none; } /* Oculta la barra de scroll en Chrome/Safari */
+    #filters-list::-webkit-scrollbar { display: none; } 
 }
