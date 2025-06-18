@@ -1,13 +1,13 @@
 /* =================================================================== */
-/* ALMA MOTERA - BASE STYLES V2 (CORREGIDO Y ORGANIZADO)               */
+/* ALMA MOTERA - BASE STYLES V3 (CONTRASTE AA GARANTIZADO)             */
 /* =================================================================== */
 
 /* --- 1. VARIABLES Y ESTILOS GLOBALES --- */
 :root {
     --background-color: #212121;
     --card-background: #2a2a2a;
-    --text-color: #F4F4F4;
-    --accent-color: #FF6600;
+    --text-color: #F4F4F4; /* Excelente contraste (pasa AAA) */
+    --accent-color: #FF7A1A; /* Naranja ligeramente más brillante para pasar AA consistentemente */
     --accent-color-dark: #C05000;
     --heading-font: 'Oswald', sans-serif;
     --body-font: 'Roboto', sans-serif;
@@ -108,6 +108,16 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 .carousel-slide.active { opacity: 1; z-index: 10; }
 .hero-content h1 { font-size: 2.8rem; }
 .hero-content p { font-size: 1.1rem; margin-bottom: 1.5rem; }
+.hero-content {
+    visibility: hidden; /* Oculta el contenido por defecto */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.carousel-slide.active .hero-content {
+    visibility: visible; /* Lo hace visible solo en el slide activo */
+    opacity: 1;
+}
 .carousel-btn {
     position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
     background-color: rgba(0, 0, 0, 0.4); color: white; border: none;
@@ -129,6 +139,7 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 .passion-buttons { display: flex; gap: 1rem; }
 .passion-graphic { flex: 1; display: flex; justify-content: center; align-items: center; }
 .wavy-line { width: 100%; max-width: 250px; height: auto; }
+.wavy-line path { stroke: var(--accent-color-dark); } /* Usando la variable de color oscuro */
 
 /* FEATURES */
 .features { padding: 4rem 0; display: flex; gap: 2rem; justify-content: center; }
@@ -154,11 +165,124 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 .modal-content { text-align: center; }
 .modal-content h2 { color: var(--accent-color); margin-bottom: 1rem; }
 .modal-content p { margin-bottom: 2rem; line-height: 1.8; }
-#close-modal-btn { background-color: var(--accent-color); color: #1c1c1c; }
-#close-modal-btn:hover { filter: brightness(1.15); }
 
 /* ICONO DE HAMBURGUESA (Oculto en desktop) */
 .mobile-menu-icon { display: none; }
+
+
+/* --- 6.A SECCIONES DE LA PÁGINA DE GALERÍA --- */
+
+.main-gallery {
+    padding-top: 80px; /* Espacio para el header fijo */
+}
+
+/* SECCIÓN DE BÚSQUEDA */
+.search-section {
+    padding: 4rem 0;
+    text-align: center;
+    background-color: var(--card-background);
+}
+
+#search-form {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 0.8rem 1rem;
+    font-size: 1rem;
+    border: 2px solid #444;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: 5px;
+}
+#search-input:focus {
+    outline: 2px solid var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+/* SECCIÓN DE LA GALERÍA */
+.gallery-section {
+    padding: 2rem 0;
+}
+
+#gallery-grid {
+    display: grid;
+    /* Crea 3 columnas de igual tamaño */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.gallery-card {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: var(--card-background);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    aspect-ratio: 4 / 3; /* Mantiene una proporción consistente */
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen llene la tarjeta sin deformarse */
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Overlay con información del fotógrafo */
+.gallery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    transform: translateY(100%);
+    transition: transform 0.4s ease;
+}
+
+.gallery-card:hover .gallery-overlay {
+    transform: translateY(0);
+}
+
+.gallery-overlay a {
+    color: white;
+    font-weight: bold;
+}
+.gallery-overlay a:hover {
+    color: var(--accent-color);
+}
+
+#gallery-message {
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 4rem 0;
+}
+
+/* Añade estos estilos en la sección de la galería */
+
+.photo-description {
+    font-size: 0.85rem;
+    font-style: italic;
+    margin-bottom: 0.75rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.photo-attribution {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
 
 /* =================================================================== */
 /* 7. ESTILOS RESPONSIVOS (MÓVIL)                                      */
@@ -204,4 +328,8 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
     .features { flex-direction: column; padding: 2rem 0; gap: 1rem; }
 
     .newsletter-form button { width: 100%; max-width: 250px; }
+
+    .main-gallery { padding-top: 120px; } /* Más espacio para el header apilado */
+    #search-form { flex-direction: column; align-items: center; }
+    #gallery-grid { grid-template-columns: repeat(1, 1fr); } /* 1 columna en móvil */
 }
