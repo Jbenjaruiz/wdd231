@@ -1,45 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // --- CONFIGURACIÓN ---
     const UNSPLASH_ACCESS_KEY = 'Elfow2DKAeCJDEnc6x3PLQ61CF_DxbqUdbkuey0JtYw';
     const MAX_HISTORY_ITEMS = 5;
 
-    // Elementos del DOM
     const searchForm = document.querySelector('#search-form');
     const searchInput = document.querySelector('#search-input');
     const galleryGrid = document.querySelector('#gallery-grid');
     const galleryMessage = document.querySelector('#gallery-message');
     const historyContainer = document.querySelector('#history-container');
 
-    // --- FUNCIONES DE HISTORIAL ---
-
-    /**
-     * Obtiene el historial desde Local Storage.
-     * @returns {string[]} Un array de términos de búsqueda.
-     */
     function getSearchHistory() {
         const history = localStorage.getItem('motorcycleSearchHistory');
         return history ? JSON.parse(history) : [];
     }
 
-    /**
-     * Guarda un nuevo término en el historial de Local Storage.
-     * @param {string} term - El término de búsqueda del usuario.
-     */
     function saveToHistory(term) {
         let history = getSearchHistory();
-        // Elimina duplicados para que el más reciente quede al principio
         history = history.filter(item => item.toLowerCase() !== term.toLowerCase());
-        // Añade el nuevo término al principio
         history.unshift(term);
-        // Limita el historial al número máximo de ítems
         history.splice(MAX_HISTORY_ITEMS);
-        // Guarda el array actualizado en Local Storage
         localStorage.setItem('motorcycleSearchHistory', JSON.stringify(history));
     }
 
-    /**
-     * Muestra los ítems del historial en la página.
-     */
     function displayHistory() {
         historyContainer.innerHTML = '';
         const history = getSearchHistory();
@@ -54,9 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- FUNCIÓN PRINCIPAL DE FETCH --- (Sin cambios)
     async function fetchAndDisplayImages(query) {
-        // ... el código de esta función se queda exactamente igual que antes ...
         galleryGrid.innerHTML = '';
         galleryMessage.textContent = `Searching for "${query}" pictures...`;
         galleryMessage.style.display = 'block';
@@ -84,30 +63,25 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // --- EVENT LISTENERS ---
-
-    // Búsqueda del usuario
     searchForm.addEventListener('submit', (event) => {
         event.preventDefault();
         const userQuery = searchInput.value.trim();
         if (userQuery) {
             const finalQuery = `${userQuery} motorcycle`;
             fetchAndDisplayImages(finalQuery);
-            saveToHistory(userQuery); // Guarda la búsqueda en el historial
-            displayHistory();        // Actualiza la vista del historial
+            saveToHistory(userQuery);
+            displayHistory();
         }
     });
 
-    // Clic en un ítem del historial (usando delegación de eventos)
     historyContainer.addEventListener('click', (event) => {
         if (event.target.classList.contains('history-item')) {
             const term = event.target.textContent;
-            searchInput.value = term; // Pone el término en la barra de búsqueda
-            searchForm.requestSubmit(); // Envía el formulario programáticamente
+            searchInput.value = term;
+            searchForm.requestSubmit();
         }
     });
 
-    // --- INICIALIZACIÓN ---
-    displayHistory(); // Muestra el historial al cargar la página
-    fetchAndDisplayImages('motorcycle'); // Carga inicial
+    displayHistory();
+    fetchAndDisplayImages('motorcycle');
 });

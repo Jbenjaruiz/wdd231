@@ -1,13 +1,13 @@
 /* =================================================================== */
-/* ALMA MOTERA - BASE STYLES V3 (CONTRASTE AA GARANTIZADO)             */
+/* ALMA MOTERA - FINAL BASE STYLES                                     */
 /* =================================================================== */
 
-/* --- 1. VARIABLES Y ESTILOS GLOBALES --- */
+/* --- 1. VARIABLES & GLOBAL STYLES --- */
 :root {
     --background-color: #212121;
     --card-background: #2a2a2a;
-    --text-color: #F4F4F4; /* Excelente contraste (pasa AAA) */
-    --accent-color: #FF7A1A; /* Naranja ligeramente más brillante para pasar AA consistentemente */
+    --text-color: #F4F4F4;
+    --accent-color: #FF7A1A;
     --accent-color-dark: #C05000;
     --heading-font: 'Oswald', sans-serif;
     --body-font: 'Roboto', sans-serif;
@@ -26,20 +26,13 @@ body {
     line-height: 1.6;
 }
 
-main > h1 {
-    text-align: center;
-    font-size: 3rem;
-    padding: 120px 1rem 0 1rem; /* Padding superior para el header fijo */
-    margin-bottom: 1.5rem;
-}
-
 .container {
     width: 90%;
     max-width: 1100px;
     margin: 0 auto;
 }
 
-/* --- 2. TIPOGRAFÍA BASE --- */
+/* --- 2. BASE TYPOGRAPHY --- */
 h1, h2, h3 {
     font-family: var(--heading-font);
     font-weight: 700;
@@ -55,7 +48,14 @@ p { margin-bottom: 1rem; }
 a { color: var(--accent-color); text-decoration: none; }
 a:hover { text-decoration: underline; }
 
-/* --- 3. COMPONENTES REUTILIZABLES --- */
+main > h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 120px 1rem 0 1rem;
+    margin-bottom: 1.5rem;
+}
+
+/* --- 3. REUSABLE COMPONENTS --- */
 .button {
     display: inline-block;
     padding: 0.8rem 2rem;
@@ -84,10 +84,11 @@ a:hover { text-decoration: underline; }
 .feature-card p { margin: 1rem 0 2rem; }
 .feature-card a { font-weight: bold; }
 
-/* --- 4. LAYOUT PRINCIPAL (HEADER Y FOOTER) --- */
+/* --- 4. MAIN LAYOUT (HEADER, FOOTER, MAIN) --- */
 .main-content {
-    padding-top: 80px; /* Space for the fixed header */
+    padding-top: 80px;
 }
+
 header {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem 0;
@@ -105,7 +106,7 @@ nav a.active { color: var(--accent-color); border-bottom: 2px solid var(--accent
 
 footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px solid #444; }
 
-/* --- 5. SECCIONES ESPECÍFICAS DE PÁGINA --- */
+/* --- 5. PAGE-SPECIFIC SECTIONS --- */
 /* CAROUSEL */
 .carousel-container { position: relative; width: 100%; height: 50vh; overflow: hidden; }
 .carousel-slide {
@@ -115,8 +116,6 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
     padding: 0 2rem; opacity: 0; transition: opacity 0.8s ease-in-out;
 }
 .carousel-slide.active { opacity: 1; z-index: 10; }
-
-
 .carousel-btn {
     position: absolute; top: 50%; transform: translateY(-50%); z-index: 20;
     background-color: rgba(0, 0, 0, 0.4); color: white; border: none;
@@ -141,7 +140,40 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 .newsletter-form input[type="email"] { padding: 12px 15px; font-size: 1rem; border: none; border-radius: 6px; flex: 1 1 250px; max-width: 400px; }
 .newsletter-form button { padding: 12px 20px; font-size: 1rem; background-color: var(--accent-color); color: #1c1c1c; border: none; border-radius: 6px; font-weight: bold; cursor: pointer; }
 
-/* --- 6. COMPONENTES INTERACTIVOS --- */
+/* GALLERY & CATEGORIES PAGE */
+.search-section { padding: 4rem 0; text-align: center; background-color: var(--card-background); }
+#search-form { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
+#search-input { width: 100%; max-width: 500px; padding: 0.8rem 1rem; font-size: 1rem; border: 2px solid #444; background-color: var(--background-color); color: var(--text-color); border-radius: 5px; }
+#search-input:focus { outline: 2px solid var(--accent-color); border-color: var(--accent-color); }
+#history-container { margin-top: 2rem; display: flex; justify-content: center; align-items: center; gap: 0.75rem; flex-wrap: wrap; min-height: 40px; }
+.history-item { background-color: var(--card-background); color: var(--text-color); padding: 0.4rem 0.8rem; border-radius: 20px; font-size: 0.9rem; border: 1px solid #444; cursor: pointer; transition: background-color 0.3s, border-color 0.3s; }
+.history-item:hover { background-color: var(--accent-color); color: #1c1c1c; border-color: var(--accent-color); }
+.gallery-section { padding: 2rem 0; }
+#gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+.gallery-card { position: relative; border-radius: 8px; overflow: hidden; background-color: var(--card-background); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); aspect-ratio: 4 / 3; }
+.gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, opacity 0.4s ease; }
+.gallery-card:hover img { transform: scale(1.1); opacity: 0.8; }
+.gallery-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 1rem; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); color: white; transform: translateY(100%); transition: transform 0.4s ease; }
+.gallery-card:hover .gallery-overlay { transform: translateY(0); }
+.gallery-overlay a { color: white; font-weight: bold; }
+.gallery-overlay a:hover { color: var(--accent-color); }
+#gallery-message { text-align: center; font-size: 1.2rem; padding: 4rem 0; }
+.photo-description { font-size: 0.85rem; font-style: italic; margin-bottom: 0.75rem; opacity: 0.9; line-height: 1.4; }
+.photo-attribution { font-size: 0.8rem; opacity: 0.8; }
+.category-filters { background-color: var(--card-background); padding: 1.5rem 0; border-bottom: 1px solid #444; }
+#filters-list { display: flex; justify-content: center; gap: 1.5rem; list-style: none; flex-wrap: wrap; }
+.filter-item { font-family: var(--heading-font); color: var(--text-color); text-transform: uppercase; font-size: 1.1rem; padding: 0.5rem 1rem; border-radius: 5px; cursor: pointer; transition: background-color 0.3s, color 0.3s; border: 2px solid transparent; }
+.filter-item:hover { color: var(--accent-color); }
+.filter-item.active { background-color: var(--accent-color); color: #1c1c1c; border-color: var(--accent-color); }
+
+/* THANK YOU PAGE */
+.thank-you-section { display: flex; justify-content: center; align-items: center; min-height: 60vh; padding: 4rem 1rem; text-align: center; }
+.thank-you-section .container { max-width: 650px; }
+.thank-you-section h1 { font-size: 3rem; line-height: 1.2; margin-bottom: 2rem; }
+.thank-you-section p { font-size: 1.2rem; line-height: 1.7; margin-bottom: 1rem; }
+.thank-you-section .button { margin-top: 2.5rem; }
+
+/* --- 6. INTERACTIVE COMPONENTS --- */
 /* MODAL */
 .modal-dialog {
     top: 50%; left: 50%; transform: translate(-50%, -50%);
@@ -154,251 +186,45 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 .modal-content h2 { color: var(--accent-color); margin-bottom: 1rem; }
 .modal-content p { margin-bottom: 2rem; line-height: 1.8; }
 
-/* ICONO DE HAMBURGUESA (Oculto en desktop) */
+/* HAMBURGER ICON (Hidden on desktop) */
 .mobile-menu-icon { display: none; }
 
 
-/* SECCIÓN DE BÚSQUEDA */
-.search-section {
-    padding: 4rem 0;
-    text-align: center;
-    background-color: var(--card-background);
-}
-
-#search-form {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-#search-input {
-    width: 100%;
-    max-width: 500px;
-    padding: 0.8rem 1rem;
-    font-size: 1rem;
-    border: 2px solid #444;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    border-radius: 5px;
-}
-#search-input:focus {
-    outline: 2px solid var(--accent-color);
-    border-color: var(--accent-color);
-}
-
-/* SECCIÓN DE LA GALERÍA */
-/* --- Estilos para el Historial de Búsqueda --- */
-#history-container {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.75rem;
-    flex-wrap: wrap;
-    min-height: 40px; /* Evita que la página salte cuando aparece el primer historial */
-}
-
-.history-item {
-    background-color: var(--card-background);
-    color: var(--text-color);
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    border: 1px solid #444;
-    cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
-}
-
-.history-item:hover {
-    background-color: var(--accent-color);
-    color: #1c1c1c;
-    border-color: var(--accent-color);
-}
-.gallery-section {
-    padding: 2rem 0;
-}
-
-#gallery-grid {
-    display: grid;
-    /* Crea 3 columnas de igual tamaño */
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-}
-
-.gallery-card {
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-    background-color: var(--card-background);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    aspect-ratio: 4 / 3; /* Mantiene una proporción consistente */
-}
-
-.gallery-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Asegura que la imagen llene la tarjeta sin deformarse */
-    transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-.gallery-card:hover img {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
-
-/* Overlay con información del fotógrafo */
-.gallery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 1rem;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    color: white;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-}
-
-.gallery-card:hover .gallery-overlay {
-    transform: translateY(0);
-}
-
-.gallery-overlay a {
-    color: white;
-    font-weight: bold;
-}
-.gallery-overlay a:hover {
-    color: var(--accent-color);
-}
-
-#gallery-message {
-    text-align: center;
-    font-size: 1.2rem;
-    padding: 4rem 0;
-}
-
-/* Añade estos estilos en la sección de la galería */
-
-.photo-description {
-    font-size: 0.85rem;
-    font-style: italic;
-    margin-bottom: 0.75rem;
-    opacity: 0.9;
-    line-height: 1.4;
-}
-
-.photo-attribution {
-    font-size: 0.8rem;
-    opacity: 0.8;
-}
-
-/* --- 6.B SECCIONES DE LA PÁGINA DE CATEGORÍAS --- */
-
-.category-filters {
-    background-color: var(--card-background);
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #444;
-}
-
-#filters-list {
-    display: flex;
-    justify-content: center;
-    gap: 1.5rem;
-    list-style: none;
-    flex-wrap: wrap; /* Permite que los filtros pasen a la siguiente línea si no caben */
-}
-
-.filter-item {
-    font-family: var(--heading-font);
-    color: var(--text-color);
-    text-transform: uppercase;
-    font-size: 1.1rem;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-    border: 2px solid transparent;
-}
-
-.filter-item:hover {
-    color: var(--accent-color);
-}
-
-.filter-item.active {
-    background-color: var(--accent-color);
-    color: #1c1c1c;
-    border-color: var(--accent-color);
-}
-
-/* Estilo para la página de agradecimiento */
-.thank-you-section {
-    padding: 6rem 0;
-    text-align: center;
-}
-.thank-you-section p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 1rem auto;
-}
-.thank-you-section .button {
-    margin-top: 2rem;
-}
-
 /* =================================================================== */
-/* 7. ESTILOS RESPONSIVOS (MÓVIL)                                      */
+/* 7. RESPONSIVE STYLES (MOBILE)                                       */
 /* =================================================================== */
 @media (max-width: 768px) {
+    /* BASE & TYPOGRAPHY */
     h1 { font-size: 2.5rem; }
     h2 { font-size: 2rem; }
     h3 { font-size: 1.3rem; }
+    main > h1 { padding-top: 140px; font-size: 2.2rem; }
 
-    .mobile-menu-icon {
-        display: flex; flex-direction: column; justify-content: space-around;
-        width: 30px; height: 25px; background: transparent;
-        border: none; cursor: pointer; padding: 0; z-index: 1010;
-    }
+    /* LAYOUT */
+    .main-content { padding-top: 120px; }
+
+    /* HAMBURGER NAVIGATION */
+    .mobile-menu-icon { display: flex; flex-direction: column; justify-content: space-around; width: 30px; height: 25px; background: transparent; border: none; cursor: pointer; padding: 0; z-index: 1010; }
     .mobile-menu-icon span { width: 100%; height: 3px; background-color: var(--text-color); border-radius: 2px; transition: all 0.3s linear; }
     .mobile-menu-icon.active span:nth-child(1) { transform: rotate(45deg) translate(7px, 7px); }
     .mobile-menu-icon.active span:nth-child(2) { opacity: 0; }
     .mobile-menu-icon.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -6px); }
-
-    nav .nav-list {
-        display: none; position: absolute; top: 100%; right: 0;
-        width: 100%; background-color: var(--background-color);
-        flex-direction: column; align-items: center; padding: 1rem 0;
-        border-top: 1px solid #444;
-    }
+    nav .nav-list { display: none; position: absolute; top: 100%; right: 0; width: 100%; background-color: var(--background-color); flex-direction: column; align-items: center; padding: 1rem 0; border-top: 1px solid #444; }
     nav .nav-list.active { display: flex; }
     nav .nav-list li { width: 100%; text-align: center; padding: 1rem 0; }
     
-
+    /* PAGE SECTIONS */
     .carousel-btn { display: none; }
 
     .features { flex-direction: column; padding: 2rem 0; gap: 1rem; }
 
     .newsletter-form button { width: 100%; max-width: 250px; }
 
-    .main-gallery { padding-top: 120px; } 
     #search-form { flex-direction: column; align-items: center; }
     #gallery-grid { grid-template-columns: repeat(1, 1fr); } 
 
-
-    .main-categories { padding-top: 120px; }
-    #filters-list {
-        justify-content: flex-start; 
-        flex-wrap: nowrap; 
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch; 
-        scrollbar-width: none; 
-    }
+    #filters-list { justify-content: flex-start; flex-wrap: nowrap; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
     #filters-list::-webkit-scrollbar { display: none; } 
 
-    main > h1 {
-    padding-top: 140px; /* Más espacio para el header móvil apilado */
-    font-size: 2.2rem;
-}
-.main-content {
-    padding-top: 120px; /* More space for stacked mobile header */
-}
+    .thank-you-section h1 { font-size: 2.2rem; }
 }
