@@ -1,13 +1,6 @@
-document.addEventListener('DOMContentLoaded', async () => {
-    
-    // --- 1. CONFIGURACIÓN DEL CONTENIDO DEL CAROUSEL (SIMPLIFICADO) ---
-    const slideData = [
-        { image: 'images/moto-hero-1.jpeg' },
-        { image: 'images/moto-hero-2.jpeg' },
-        { image: 'images/moto-hero-3.jpeg' }
-    ];
+document.addEventListener('DOMContentLoaded', () => {
 
-    // --- 2. SELECCIÓN DE ELEMENTOS DEL DOM ---
+    // --- 1. SELECCIÓN DE ELEMENTOS DEL DOM ---
     const slides = document.querySelectorAll('.carousel-slide');
     const prevBtn = document.querySelector('.prev-btn');
     const nextBtn = document.querySelector('.next-btn');
@@ -15,21 +8,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     let currentSlide = 0;
 
-    // --- 3. FUNCIÓN PARA CARGAR DATOS EN LOS SLIDES (SIMPLIFICADA) ---
-    function populateSlides() {
-        slides.forEach((slide, index) => {
-            const data = slideData[index];
-            if (data) {
-                // Aplicar solo la imagen de fondo
-                slide.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${data.image}')`;
+    // --- 2. FUNCIÓN PARA APLICAR LAS IMÁGENES DESDE EL HTML ---
+    function applyBackgroundImages() {
+        slides.forEach(slide => {
+            // Lee el valor del atributo 'data-background'
+            const bgImage = slide.dataset.background;
+            
+            // Si el atributo existe, lo aplica como fondo
+            if (bgImage) {
+                slide.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${bgImage}')`;
             }
         });
     }
 
-    // --- 4. LÓGICA DEL CAROUSEL ---
+    // --- 3. LÓGICA DEL CAROUSEL ---
     function showSlide(slideIndex) {
-        if (slideIndex >= slideData.length) slideIndex = 0;
-        if (slideIndex < 0) slideIndex = slideData.length - 1;
+        if (slideIndex >= slides.length) slideIndex = 0;
+        if (slideIndex < 0) slideIndex = slides.length - 1;
 
         slides.forEach(slide => slide.classList.remove('active'));
         dots.forEach(dot => dot.classList.remove('active'));
@@ -40,13 +35,13 @@ document.addEventListener('DOMContentLoaded', async () => {
         currentSlide = slideIndex;
     }
 
-    // --- 5. INICIALIZACIÓN COMPLETA ---
-    async function initializeCarousel() {
-        // Ya no necesitamos hacer fetch, los datos están aquí mismo.
-        if (slideData.length > 0) {
-            populateSlides();
-            showSlide(0);
+    // --- 4. INICIALIZACIÓN ---
+    function initializeCarousel() {
+        if (slides.length > 0) {
+            applyBackgroundImages(); // Aplica los fondos desde el HTML
+            showSlide(0);            // Muestra el primer slide
 
+            // Asigna los eventos
             nextBtn.addEventListener('click', () => showSlide(currentSlide + 1));
             prevBtn.addEventListener('click', () => showSlide(currentSlide - 1));
             dots.forEach(dot => {
@@ -59,10 +54,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     }
 
-    // Lógica del formulario y modal (si está en esta página)
+    // Lógica del formulario y modal...
     const newsletterForm = document.querySelector('.newsletter-form');
-    if(newsletterForm) {
-        // ... (el resto de tu código para el modal se queda igual)
+    // ... (el resto de tu código para el modal se queda igual)
+    if (newsletterForm) {
+        // ...
     }
 
     initializeCarousel();
