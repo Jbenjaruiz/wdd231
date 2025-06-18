@@ -19,13 +19,13 @@ document.addEventListener('DOMContentLoaded', () => {
     let headerPromise;
 
     if (headerPlaceholder) {
-        headerPromise = loadComponent('#header-placeholder', 'header.html');
+        headerPromise = loadComponent('#header-placeholder', 'components/header.html');
     } else {
         headerPromise = Promise.resolve();
     }
 
     if (footerPlaceholder) {
-        loadComponent('#footer-placeholder', 'footer.html');
+        loadComponent('#footer-placeholder', 'components/footer.html');
     }
 
     headerPromise.then(() => {
