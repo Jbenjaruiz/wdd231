@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = slideData[index];
             if (data) {
                 // Aplicar solo la imagen de fondo
-                slide.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('${data.image}')`;
+                slide.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('${data.image}')`;
             }
         });
     }

@@ -26,6 +26,13 @@ body {
     line-height: 1.6;
 }
 
+main > h1 {
+    text-align: center;
+    font-size: 3rem;
+    padding: 120px 1rem 0 1rem; /* Padding superior para el header fijo */
+    margin-bottom: 1.5rem;
+}
+
 .container {
     width: 90%;
     max-width: 1100px;
@@ -119,17 +126,6 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 .carousel-dots { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 20; display: flex; gap: 10px; }
 .dot { width: 12px; height: 12px; border-radius: 50%; background-color: rgba(255, 255, 255, 0.5); cursor: pointer; transition: background-color 0.3s ease; }
 .dot.active { background-color: white; }
-
-/* PASIÓN */
-.passion-section { padding: 6rem 0; }
-.passion-container { display: flex; align-items: center; gap: 2rem; }
-.passion-content { flex: 1; padding-right: 2rem; }
-.passion-content h2 { text-align: left; font-size: 3rem; margin-bottom: 1.5rem; }
-.passion-content p { font-size: 1.1rem; max-width: 500px; margin-bottom: 2.5rem; }
-.passion-buttons { display: flex; gap: 1rem; }
-.passion-graphic { flex: 1; display: flex; justify-content: center; align-items: center; }
-.wavy-line { width: 100%; max-width: 250px; height: auto; }
-.wavy-line path { stroke: var(--accent-color-dark); } /* Usando la variable de color oscuro */
 
 /* FEATURES */
 .features { padding: 4rem 0; display: flex; gap: 2rem; justify-content: center; }
@@ -371,4 +367,9 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
         scrollbar-width: none; 
     }
     #filters-list::-webkit-scrollbar { display: none; } 
+
+    main > h1 {
+    padding-top: 140px; /* Más espacio para el header móvil apilado */
+    font-size: 2.2rem;
+}
 }
