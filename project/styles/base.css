@@ -188,6 +188,33 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 }
 
 /* SECCIÓN DE LA GALERÍA */
+/* --- Estilos para el Historial de Búsqueda --- */
+#history-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    min-height: 40px; /* Evita que la página salte cuando aparece el primer historial */
+}
+
+.history-item {
+    background-color: var(--card-background);
+    color: var(--text-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #444;
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.history-item:hover {
+    background-color: var(--accent-color);
+    color: #1c1c1c;
+    border-color: var(--accent-color);
+}
 .gallery-section {
     padding: 2rem 0;
 }
