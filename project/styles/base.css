@@ -284,6 +284,48 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
     opacity: 0.8;
 }
 
+/* --- 6.B SECCIONES DE LA PÁGINA DE CATEGORÍAS --- */
+
+.main-categories {
+    padding-top: 80px; /* Espacio para el header fijo */
+}
+
+.category-filters {
+    background-color: var(--card-background);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid #444;
+}
+
+#filters-list {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    flex-wrap: wrap; /* Permite que los filtros pasen a la siguiente línea si no caben */
+}
+
+.filter-item {
+    font-family: var(--heading-font);
+    color: var(--text-color);
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    border: 2px solid transparent;
+}
+
+.filter-item:hover {
+    color: var(--accent-color);
+}
+
+.filter-item.active {
+    background-color: var(--accent-color);
+    color: #1c1c1c;
+    border-color: var(--accent-color);
+}
+
 /* =================================================================== */
 /* 7. ESTILOS RESPONSIVOS (MÓVIL)                                      */
 /* =================================================================== */
@@ -332,4 +374,15 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
     .main-gallery { padding-top: 120px; } /* Más espacio para el header apilado */
     #search-form { flex-direction: column; align-items: center; }
     #gallery-grid { grid-template-columns: repeat(1, 1fr); } /* 1 columna en móvil */
+
+    /* Dentro de la @media query, al final */
+    .main-categories { padding-top: 120px; }
+    #filters-list {
+        justify-content: flex-start; /* Alinea los items al inicio */
+        flex-wrap: nowrap; /* Evita que se envuelvan en varias líneas */
+        overflow-x: auto; /* Permite el scroll horizontal */
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        scrollbar-width: none; /* Oculta la barra de scroll en Firefox */
+    }
+    #filters-list::-webkit-scrollbar { display: none; } /* Oculta la barra de scroll en Chrome/Safari */
 }
