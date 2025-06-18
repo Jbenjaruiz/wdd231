@@ -72,7 +72,6 @@ a:hover { text-decoration: underline; }
 .button-primary:hover { filter: brightness(1.15); text-decoration: none; }
 .button-secondary { background-color: transparent; color: var(--text-color); border-color: var(--text-color); }
 .button-secondary:hover { background-color: var(--text-color); color: var(--background-color); text-decoration: none; }
-.cta-button { font-size: 0.9rem; padding: 0.8rem 1.8rem; }
 
 .feature-card {
     background-color: var(--card-background);
@@ -86,6 +85,9 @@ a:hover { text-decoration: underline; }
 .feature-card a { font-weight: bold; }
 
 /* --- 4. LAYOUT PRINCIPAL (HEADER Y FOOTER) --- */
+.main-content {
+    padding-top: 80px; /* Space for the fixed header */
+}
 header {
     background-color: rgba(0, 0, 0, 0.5);
     padding: 1rem 0;
@@ -155,12 +157,6 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 /* ICONO DE HAMBURGUESA (Oculto en desktop) */
 .mobile-menu-icon { display: none; }
 
-
-/* --- 6.A SECCIONES DE LA PÁGINA DE GALERÍA --- */
-
-.main-gallery {
-    padding-top: 80px; /* Espacio para el header fijo */
-}
 
 /* SECCIÓN DE BÚSQUEDA */
 .search-section {
@@ -272,10 +268,6 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 
 /* --- 6.B SECCIONES DE LA PÁGINA DE CATEGORÍAS --- */
 
-.main-categories {
-    padding-top: 80px; /* Espacio para el header fijo */
-}
-
 .category-filters {
     background-color: var(--card-background);
     padding: 1.5rem 0;
@@ -356,13 +348,6 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
 
     .carousel-btn { display: none; }
 
-    .passion-section { padding: 4rem 0; }
-    .passion-container { flex-direction: column; text-align: center; }
-    .passion-content { padding-right: 0; order: 2; }
-    .passion-content h2 { text-align: center; }
-    .passion-buttons { justify-content: center; flex-direction: column; align-items: center; }
-    .passion-graphic { order: 1; margin-bottom: 2rem; }
-
     .features { flex-direction: column; padding: 2rem 0; gap: 1rem; }
 
     .newsletter-form button { width: 100%; max-width: 250px; }
@@ -385,5 +370,8 @@ footer { text-align: center; padding: 2rem 0; margin-top: 4rem; border-top: 1px 
     main > h1 {
     padding-top: 140px; /* Más espacio para el header móvil apilado */
     font-size: 2.2rem;
+}
+.main-content {
+    padding-top: 120px; /* More space for stacked mobile header */
 }
 }
