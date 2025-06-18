@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // --- LÓGICA DEL CAROUSEL ---
     const carouselContainer = document.querySelector('.carousel-container');
     if (carouselContainer) {
         const slides = document.querySelectorAll('.carousel-slide');
@@ -47,27 +45,5 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         initializeCarousel();
-    }
-
-    // --- LÓGICA DEL FORMULARIO Y MODAL (ESTA ES LA PARTE QUE FALTABA) ---
-    const newsletterForm = document.querySelector('.newsletter-form');
-    const emailInput = document.querySelector('.newsletter-form input[type="email"]');
-    const modal = document.querySelector('#subscription-modal');
-    const closeModalBtn = document.querySelector('#close-modal-btn');
-
-    if (newsletterForm && emailInput && modal && closeModalBtn) {
-        newsletterForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            if (emailInput.checkValidity()) {
-                modal.showModal();
-                emailInput.value = '';
-            } else {
-                emailInput.reportValidity();
-            }
-        });
-
-        closeModalBtn.addEventListener('click', () => {
-            modal.close();
-        });
     }
 });

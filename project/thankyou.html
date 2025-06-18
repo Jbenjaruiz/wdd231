@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! - Alma Motera</title>
+    <meta name="description" content="Subscription confirmation page for Alma Motera.">
+    <meta name="author" content="Benjamin Ruiz">
+    
+    <link rel="icon" href="favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/base.css">
+</head>
+<body>
+    <header id="header-placeholder"></header>
+
+    <main class="main-content">
+        <section class="thank-you-section">
+            <div class="container">
+                <h1>Thank You For Subscribing!</h1>
+                <p>A confirmation email has been sent to: <strong id="submitted-email"></strong>.</p>
+                <p>You're now on the list to receive our latest news, articles, and event updates. Ride on!</p>
+                <a href="index.html" class="button button-secondary">Back to Home</a>
+            </div>
+        </section>
+    </main>
+
+    <dialog id="thank-you-modal" class="modal-dialog">
+        <div class="modal-content">
+            <h2>Welcome to the Club!</h2>
+            <p>We're thrilled to have you. Keep an eye on your inbox for exclusive content and community news.</p>
+            <button id="close-modal-btn" class="button button-primary">Got it!</button>
+        </div>
+    </dialog>
+
+    <footer id="footer-placeholder"></footer>
+
+    <script src="scripts/components.js"></script>
+    <script src="scripts/thankyou.js"></script>
+</body>
+</html>
