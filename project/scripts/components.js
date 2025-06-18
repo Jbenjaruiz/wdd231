@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Cargar Header y Footer
-    const loadHeader = loadComponent('#header-placeholder', 'header.html');
-    const loadFooter = loadComponent('#footer-placeholder', 'footer.html');
+    const loadHeader = loadComponent('#header-placeholder', 'components/header.html');
+    const loadFooter = loadComponent('#footer-placeholder', 'components/footer.html');
 
     // Después de que el header se haya cargado, inicializamos el menú de hamburguesa
     Promise.all([loadHeader]).then(() => {
